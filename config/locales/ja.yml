@@ -205,6 +205,13 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-  # view:
-  #   title: タイトル
-  #   content: タスク内容
+  view:
+    btn_confirm: 投稿内容を確認する
+    talk_new_h1: 相談を投稿する
+    talk_index_h1: みんなの相談一覧
+    talk_index_h2_new: 最新の相談
+    talk_index_h2_category: 相談カテゴリー
+    talk_title: 相談タイトル
+    talk_content: 相談内容
+    talk_title_placeholder: 相談したいタイトルを入力しましょう
+    talk_content_placeholder: 相談したい内容を入力しましょう
