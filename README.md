@@ -9,29 +9,29 @@
 https://docs.google.com/spreadsheets/d/1OCb9t5VO9uaCVGzTrqz9toTfpyoNRm8-WiT_1_O1AK0/edit#gid=1847427732
 
 ### バージョン
-Ruby 2.6.3
-Rails 5.2.3
+* Ruby 2.6.3
+* Rails 5.2.3
 
 ### 機能一覧
 
-+ユーザーログイン機能
-*ユーザー登録機能（一般ユーザー、企業ユーザー、adminユーザー）
-*メールアドレス、名前、パスワードは必須
-*相談一覧表示機能
++ ユーザーログイン機能
+* ユーザー登録機能（一般ユーザー、企業ユーザー、adminユーザー）
+* メールアドレス、名前、パスワードは必須
+* 相談一覧表示機能
 
-+相談機能
-*相談投稿機能
-*相談削除・編集機能
-*相談へのカテゴリ付与機能（カテゴリ作成はadminユーザーのみ）
++ 相談機能
+* 相談投稿機能
+* 相談削除・編集機能
+* 相談へのカテゴリ付与機能（カテゴリ作成はadminユーザーのみ）
 
-+相談に対してコメント機能
-+コメントの削除・編集機能
-+コメントへのいいねを表示
++ 相談に対してコメント機能
++ コメントの削除・編集機能
++ コメントへのいいねを表示
 
-+企業情報登録
-*企業情報編集・削除機能
++ 企業情報登録
+* 企業情報編集・削除機能
 
-+ユーザー同士のダイレクトチャット機能
++ ユーザー同士のダイレクトチャット機能
 
 ### カタログ設計
 https://docs.google.com/spreadsheets/d/1OCb9t5VO9uaCVGzTrqz9toTfpyoNRm8-WiT_1_O1AK0/edit#gid=1847427732
@@ -47,7 +47,7 @@ https://xd.adobe.com/view/d8b6b63b-dac2-403c-579c-f5d8ddbdd390-ae87/
 https://gyazo.com/1a15e627777dee6325943c40b213aee3
 
 ### 使用予定Gem
-*devise
-*carrierwave
-*mini_magick
-*cancancan
+* devise
+* carrierwave
+* mini_magick
+* cancancan
