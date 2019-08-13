@@ -39,6 +39,12 @@ https://docs.google.com/spreadsheets/d/1OCb9t5VO9uaCVGzTrqz9toTfpyoNRm8-WiT_1_O1
 ### テーブル定義
 https://docs.google.com/spreadsheets/d/1OCb9t5VO9uaCVGzTrqz9toTfpyoNRm8-WiT_1_O1AK0/edit#gid=1485182585
 
+### テーブルカラム定義
+https://docs.google.com/spreadsheets/d/1OCb9t5VO9uaCVGzTrqz9toTfpyoNRm8-WiT_1_O1AK0/edit#gid=1406560059
+
+### ER図
+https://cacoo.com/diagrams/fh74VCPrxU7GIPa7/50B21
+
 ### 画面遷移図/画面ワイヤーフレーム
 https://xd.adobe.com/view/d8b6b63b-dac2-403c-579c-f5d8ddbdd390-ae87/
 プロトタイプのボタンにリンクをつけたので、クリックして画面遷移が可能です。
