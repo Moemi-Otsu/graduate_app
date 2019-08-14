@@ -2,7 +2,7 @@
   <h1><%= @talk.title %></h1>
   <ul class="talk_utility">
     <li><%= link_to t('view.talk_btn_edit'), edit_talk_path(@talk.id) %></li>
-    <li><%= link_to '削除する', talk_path(@talk.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></li>
+    <li><%= link_to t('view.btn_delete'), talk_path(@talk.id), method: :delete, data: { confirm: '本当に削除しますか？' } %></li>
   </ul>
   <div class="talk_box_header">
     <p>

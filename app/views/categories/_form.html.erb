@@ -1,0 +1,24 @@
+<%= form_with(model: @category, local: true) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @category.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form">
+    <dl>
+      <dt><%= f.label :'name', t('view.category_name') %></dt>
+      <dd><%= f.text_field :name, placeholder: t('view.category_placeholder') %></dd>
+      <dd><%= f.submit %></dd>
+    </dl>
+  </div>
+<% end %>
+
+<ul class="back_links">
+  <li><%= link_to t('view.btn_back_index'), categories_path, class: 'submit' %></li>
+</ul>

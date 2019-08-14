@@ -212,7 +212,8 @@ ja:
     talk_new: 相談する
     btn_back_index: 一覧へもどる
     btn_confirm: 投稿内容を確認する
-    btn_update: 編集する
+    btn_update: 編集
+    btn_delete: 削除
     talk_btn_edit: 投稿を編集する
     errors_count: 件のエラーがあります。
     talk_new_h1: 相談を投稿する
@@ -224,3 +225,8 @@ ja:
     talk_content: 相談内容
     talk_title_placeholder: 相談したいタイトルを入力しましょう
     talk_content_placeholder: 相談したい内容を入力しましょう
+    category_name: カテゴリ
+    category_index_h1: カテゴリ一覧 
+    category_new: カテゴリ新規作成
+    category_placeholder: カテゴリ名を入力しましょう
+    category_btn_edit: カテゴリを編集する
