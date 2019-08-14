@@ -10,6 +10,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header container-fluid">
+      <h1>LOGO</h1>
+      <ul>
+        <li><%= link_to t('view.user_new'), talks_path %></li>
+        <li><%= link_to t('view.user_login'), talks_path %></li>
+      </ul>
+      <ul>
+        <li><%= link_to t('view.talk_index_h1'), talks_path %></li>
+        <li><%= link_to t('view.user_mypage'), talks_path %></li>
+        <li><%= link_to t('view.talk_new'), new_talk_path %></li>
+      </ul>
+    </div>
+    <div class="wrapper container">
+      <%= yield %>
+    </div>
   </body>
 </html>

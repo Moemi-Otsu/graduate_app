@@ -1,0 +1,19 @@
+<div class="talk_box_show">
+  <h1><%= @talk.title %></h1>
+  <ul class="talk_utility">
+    <li><%= link_to t('view.talk_btn_edit'), edit_talk_path(@talk.id) %></li>
+    <li><%= link_to '削除する', talk_path(@talk.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></li>
+  </ul>
+  <div class="talk_box_header">
+    <p>
+      <%= link_to talks_path do %>
+        <img src="">ひこにゃん
+      <% end %>
+    </p>
+    <ul>
+      <li><span>0</span>コメント</p></li>
+      <li>2019.8.10</li>
+    </ul>
+  </div>
+  <p><%= @talk.content %></p>
+</div>

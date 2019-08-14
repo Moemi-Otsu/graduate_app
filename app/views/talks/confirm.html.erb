@@ -1,0 +1,16 @@
+<h1>確認画面</h1>
+
+<%= form_with(model: @talk, url: talks_path, local: true) do |f| %>
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :content %>
+
+  <p>タイトル:<%= @talk.title %></p>
+  <p>本文:<%= @talk.content %></p>
+  <%= f.submit  "登録する" %>
+<% end %>
+
+<%= form_with(model: @talk, url: new_talk_path, local: true, method: 'get') do |f| %>
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :content %>
+  <%= f.submit "戻る", name: 'back' %>
+<% end %>
