@@ -1,4 +1,4 @@
-<h1><%= t('view.talk_new_h1') %></h1>
+<h1><%= t('view.talk_edit_h1') %></h1>
 
 <%= form_with(model: @talk, local:true) do |f| %>
 
@@ -19,7 +19,7 @@
       <dd><%= f.text_field :title, placeholder: t('view.talk_title_placeholder') %></dd>
       <dt><%= f.label :'content', t('view.talk_content') %></dt>
       <dd><%= f.text_field :content, placeholder: t('view.talk_content_placeholder') %></dd>
-      <dd><%= f.submit t('view.btn_confirm') %></dd>
+      <dd><%= f.submit t('view.btn_update') %></dd>
     </dl>
   </div>
 

@@ -207,8 +207,12 @@ ja:
     pm: 午後
   view:
     btn_confirm: 投稿内容を確認する
+    btn_update: 編集する
+    talk_btn_edit: 投稿を編集する
+    errors_count: 件のエラーがあります。
     talk_new_h1: 相談を投稿する
     talk_index_h1: みんなの相談一覧
+    talk_edit_h1: 相談を編集する
     talk_index_h2_new: 最新の相談
     talk_index_h2_category: 相談カテゴリー
     talk_title: 相談タイトル
