@@ -1,0 +1,17 @@
+  <% if @talk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @talk.errors.count %><%= t('view.errors_count') %></h2>
+      <ul>
+      <% @talk.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form">
+    <dl>
+      <dt><%= f.label :'title', t('view.talk_title') %></dt>
+      <dd><%= f.text_field :title, placeholder: t('view.talk_title_placeholder') %></dd>
+      <dt><%= f.label :'content', t('view.talk_content') %></dt>
+      <dd><%= f.text_field :content, placeholder: t('view.talk_content_placeholder') %></dd>

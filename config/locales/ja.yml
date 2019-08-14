@@ -206,6 +206,7 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   view:
+    btn_back_index: 一覧へもどる
     btn_confirm: 投稿内容を確認する
     btn_update: 編集する
     talk_btn_edit: 投稿を編集する
