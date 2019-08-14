@@ -1,0 +1,19 @@
+<h1><%= t('view.category_index_h1') %></h1>
+
+<%= notice %>
+
+<p><%= link_to t('view.category_new'), new_category_path %></p>
+
+<table>
+  <tr>
+    <td><%= t('view.category_name') %></td>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.name %></td>
+    <td><%= link_to t('view.btn_update'), edit_category_path(category.id) %></td>
+    <td><%= link_to t('view.btn_delete'), category_path(category.id), method: :delete, data: {confirm: '本当に削除しますか？'} %></td>
+  </tr>
+<% end %>
+</table>
