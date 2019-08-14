@@ -6,7 +6,11 @@ class TalksController < ApplicationController
   end
 
   def new
-    @talk = Talk.new
+    if params[:back]
+      @talk = Talk.new(talk_params)
+    else
+      @talk = Talk.new
+    end
   end
 
   def create
@@ -16,6 +20,11 @@ class TalksController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def confirm
+    @talk = Talk.new(talk_params)
+    render :new if @talk.invalid?
   end
 
   def show
