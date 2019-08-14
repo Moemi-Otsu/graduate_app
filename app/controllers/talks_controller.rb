@@ -32,6 +32,11 @@ class TalksController < ApplicationController
     end
   end
 
+  def destroy
+    @talk.destroy
+    redirect_to talks_path, notice:"削除しました！"
+  end
+
   private
 
   def talk_params

@@ -206,6 +206,10 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   view:
+    user_new: 新規アカウント登録
+    user_login: ログイン
+    user_mypage: マイページ
+    talk_new: 相談する
     btn_back_index: 一覧へもどる
     btn_confirm: 投稿内容を確認する
     btn_update: 編集する
