@@ -1,0 +1,65 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap/dist/css/bootstrap.min
+ *= require_tree .
+ *= require_self
+ */
+
+
+/* @expand */
+
+.btn{
+  padding: 10px 20px;
+  border: 2px solid blue;
+  border-radius: 3px;
+  background-color: lightgray;
+}
+
+.btn-submit{
+  @extend .btn;//.btnのスタイルを継承
+  background-color: lightblue;//スタイルの上書き
+  font-size: 1.5em;//スタイルの追加
+}
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
+
+/* 変数 */
+$kosugi: 'Kosugi Maru', sans-serif;
+$bottom_30: 0 0 30px 0;
+$font_color: #454545;
+$font_link_color: #2da2a8;
+$font_hover_color: #2cbfc7;
+
+/* default */
+a { color: $font_link_color; }
+a:hover { color: $font_hover_color; text-decoration: none; }
+
+body {
+  // font-family: $kosugi;
+  font-family: Roboto-Light,-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',YuGothic,'Yu Gothic','游ゴシック体','游ゴシック',Meiryo,sans-serif;
+  color: $font_color;
+}
+
+h1 {
+  margin: $bottom_30;
+  font-size: 1.8rem;
+}
+
+div.box {
+  margin: $bottom_30;
+  h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+}

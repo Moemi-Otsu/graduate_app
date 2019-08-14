@@ -1,0 +1,41 @@
+<h1><%= t('view.talk_index_h1') %></h1>
+
+<div>
+
+<%= notice %>
+
+  <div class="box">
+    <h2><%= t('view.talk_index_h2_category') %></h2>
+    <ul>
+      <li><%= link_to t('view.talk_index_h2_category'), talks_path %></li>
+      <li><%= link_to t('view.talk_index_h2_category'), talks_path %></li>
+      <li><%= link_to t('view.talk_index_h2_category'), talks_path %></li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2><%= t('view.talk_index_h2_new') %></h2>
+  <% @talks.each do |t| %>
+    <div class="talk_box">
+      <div class="talk_box_header">
+        <p>
+          <%= link_to talks_path do %>
+            <img src="">ひこにゃん
+          <% end %>
+        </p>
+        <ul>
+          <li><span>0</span>コメント</p></li>
+          <li>2019.8.10</li>
+        </ul>
+      </div>
+      <p class="taild_box_title">
+      <%= link_to talk_path(t.id) do %>
+        <%= t.title %>
+      <% end %>
+      </p>
+      <p class="taild_box_content"><%= t.content %></p>
+    </div>
+  <% end %>
+  </div>
+
+</div>
