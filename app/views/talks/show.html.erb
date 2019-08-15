@@ -1,4 +1,5 @@
 <div class="talk_box_show">
+<%= notice %>
   <h1><%= @talk.title %></h1>
   <ul class="talk_utility">
     <li><%= link_to t('view.talk_btn_edit'), edit_talk_path(@talk.id) %></li>
