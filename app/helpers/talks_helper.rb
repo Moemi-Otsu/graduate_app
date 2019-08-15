@@ -5,5 +5,5 @@ module TalksHelper
     elsif action_name == 'edit'
       talk_path
     end
-  end
+   end
 end
