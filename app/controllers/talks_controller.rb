@@ -14,6 +14,7 @@ class TalksController < ApplicationController
   end
 
   def create
+    # binding.pry
     @talk = Talk.new(talk_params)
     if @talk.save
       redirect_to talks_path, notice: "相談を投稿しました！"
@@ -49,7 +50,7 @@ class TalksController < ApplicationController
   private
 
   def talk_params
-    params.require(:talk).permit(:title, :content, :complete)
+    params.require(:talk).permit(:title, :content, :complete, category_ids: [])
   end
 
   def set_talk
