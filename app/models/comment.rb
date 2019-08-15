@@ -1,3 +1,3 @@
 class Comment < ApplicationRecord
-  belongs_to :talk
+  belongs_to :talk, dependent: :destroy
 end
