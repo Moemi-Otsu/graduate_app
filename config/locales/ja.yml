@@ -206,6 +206,7 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   view:
+    btn_back: 戻る
     user_new: 新規アカウント登録
     user_login: ログイン
     user_mypage: マイページ

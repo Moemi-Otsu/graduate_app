@@ -1,16 +1,27 @@
-<h1>確認画面</h1>
+<h1><%= t('view.btn_confirm') %></h1>
 
 <%= form_with(model: @talk, url: talks_path, local: true) do |f| %>
-  <%= f.hidden_field :title %>
-  <%= f.hidden_field :content %>
-
-  <p>タイトル:<%= @talk.title %></p>
-  <p>本文:<%= @talk.content %></p>
-  <%= f.submit  "登録する" %>
+  <dl>
+    <%= f.hidden_field :title %>
+    <%= f.hidden_field :content %>
+    <% @talk.categories.each do |category| %>
+      <%= f.hidden_field :category_ids, multiple: true, value: category.id %>
+    <% end %>
+    <dt>タイトル:</dt>
+    <dd><%= @talk.title %></dd>
+    <dt>本文:</dt>
+    <dd><%= @talk.content %></dd>
+    <dt>カテゴリ:</dt>
+    <dd><% @talk.categories.each do |i| %>
+      <%= i.name %>
+    <% end %></dd>
+    <dd><%= f.submit %></dd>
+  </dl>
 <% end %>
 
 <%= form_with(model: @talk, url: new_talk_path, local: true, method: 'get') do |f| %>
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
-  <%= f.submit "戻る", name: 'back' %>
+  <%= f.hidden_field :category, multiple: true %>
+  <%= f.submit t('view.btn_back'), name: 'back' %>
 <% end %>
