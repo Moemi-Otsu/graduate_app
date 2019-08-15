@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: [:edit, :update, :destroy]
+
   # コメントを保存、投稿するためのアクションです。
   def create
     # Talkをパラメータの値から探し出し,Talkに紐づくcommentsとしてbuildします。
@@ -14,10 +16,23 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def destroy
+    if @comment.destroy
+      render :index
+    end
+  end
+
   private
 
   def comment_params
     params.require(:comment).permit(:talk_id, :content)
+  end
+
+  def set_comment
+    @comment = Comment.find(params[:id])
   end
 
 end
