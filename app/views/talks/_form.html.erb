@@ -16,10 +16,21 @@
       <dd><%= f.text_field :title, placeholder: t('view.talk_title_placeholder') %></dd>
       <dt><%= f.label :'content', t('view.talk_content') %></dt>
       <dd><%= f.text_field :content, placeholder: t('view.talk_content_placeholder') %></dd>
+      <dt><%= f.label :'name', t('view.category_name') %></dt>
+      <dd>
+        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |i| %>
+          <%= i.label do %>
+            <%= i.check_box %>
+            <%= i.text %>
+          <% end %>
+        <% end %>
+      </dd>
     <% if action_name == 'new'%>
       <dd><%= f.submit t('view.btn_confirm') %></dd>
     <% elsif action_name == 'edit' %>
       <dd><%= f.submit t('view.btn_update') %></dd>
+    <% else %>
+      <dd><%= f.submit t('view.btn_confirm') %></dd>
     <% end %>
     </dl>
   </div>
