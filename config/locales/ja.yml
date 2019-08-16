@@ -209,6 +209,7 @@ ja:
     btn_back: 戻る
     user_new: 新規アカウント登録
     user_login: ログイン
+    user_sign_in: サインイン
     user_mypage: マイページ
     talk_new: 相談する
     btn_back_index: 一覧へもどる
@@ -231,3 +232,8 @@ ja:
     category_new: カテゴリ新規作成
     category_placeholder: カテゴリ名を入力しましょう
     category_btn_edit: カテゴリを編集する
+    devise_sign_up: 新規登録
+    devise_forgot_password: パスワードを忘れましたか？
+    devise_receive_confirmation: 確認の連絡が届きませんでしたか？
+    devise_receive_unlock: ロック解除の連絡を受け取っていませんか？
+    alert_characters_minimum: 文字以上
