@@ -12,18 +12,31 @@
   <body>
     <div class="header container-fluid">
       <h1>LOGO</h1>
-      <ul>
-        <li><%= link_to t('view.user_new'), talks_path %></li>
-        <li><%= link_to t('view.user_login'), talks_path %></li>
-      </ul>
-      <ul>
-        <li><%= link_to t('view.talk_index_h1'), talks_path %></li>
-        <li><%= link_to t('view.user_mypage'), talks_path %></li>
-        <li><%= link_to t('view.talk_new'), new_talk_path %></li>
-      </ul>
-      <ul>
-        <li><%= link_to t('view.category_index_h1'), categories_path %></li>
-      </ul>
+
+      <% if user_signed_in? %>
+        <ul>
+          <li><%= link_to t('view.talk_index_h1'), talks_path %></li>
+          <li><%= link_to t('view.user_mypage'), talks_path %></li>
+          <li><%= link_to t('view.talk_new'), new_talk_path %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        </ul>
+        <ul>
+          <li><%= link_to t('view.category_index_h1'), categories_path %></li>
+        </ul>
+      <% else %>
+        <ul>
+          <li><%= link_to t('view.user_new'), new_user_registration_path %></li>
+          <li><%= link_to t('view.user_login'), new_user_session_path %></li>
+        </ul>
+      <% end %>
+
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
+
     </div>
     <div class="wrapper container">
       <%= yield %>
