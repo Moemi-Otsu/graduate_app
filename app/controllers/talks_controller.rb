@@ -29,6 +29,8 @@ class TalksController < ApplicationController
   end
 
   def show
+    @comments = @talk.comments
+    @comment = @talk.comments.build
   end
 
   def edit
