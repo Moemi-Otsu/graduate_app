@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_091223) do
+ActiveRecord::Schema.define(version: 2019_08_15_040301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2019_08_14_091223) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "talk_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["talk_id"], name: "index_comments_on_talk_id"
   end
 
   create_table "talk_categories", force: :cascade do |t|
@@ -34,4 +42,5 @@ ActiveRecord::Schema.define(version: 2019_08_14_091223) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "talks"
 end
