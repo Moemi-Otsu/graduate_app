@@ -3,6 +3,7 @@ class TalksController < ApplicationController
 
   def index
     @talks = Talk.all
+    @categories = Category.all
   end
 
   def new
