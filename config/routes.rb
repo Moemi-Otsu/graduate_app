@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
-  resources :categories
+  resources :profiles, only: [:show, :edit, :update, :destroy]
 end
