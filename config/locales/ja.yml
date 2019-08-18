@@ -237,3 +237,12 @@ ja:
     devise_receive_confirmation: 確認の連絡が届きませんでしたか？
     devise_receive_unlock: ロック解除の連絡を受け取っていませんか？
     alert_characters_minimum: 文字以上
+    profile_age: 年齢
+    profile_image: プロフィール画像
+    profile_working_company: 現在所属している企業名
+    profile_previous_company: 過去に所属していた企業名
+    profile_length_worked: 勤続年数
+    profile_occupation: 職種
+    profile_industry: 業種
+    profile_area: お住まいのエリア
+    profile_address: 住所

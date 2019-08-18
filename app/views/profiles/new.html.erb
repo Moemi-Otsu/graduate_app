@@ -1,0 +1,37 @@
+<%= form_with(model: @profile, local: true) do |f| %>
+
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @profile.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form">
+    <dl>
+      <dt><%= f.label :'age', t('view.profile_age') %></dt>
+      <dd><%= f.text_field :age, placeholder: 'aaaa' %> 歳</dd>
+      <dt><%= f.label :'image', t('view.profile_image') %></dt>
+      <dd><%= f.text_field :image %></dd>
+      <dt><%= f.label :'working_company', t('view.profile_working_company') %></dt>
+      <dd><%= f.text_field :working_company, placeholder: 'aaaa' %></dd>
+      <dt><%= f.label :'previous_company', t('view.profile_previous_company') %></dt>
+      <dd><%= f.text_field :previous_company, placeholder: 'aaaa' %></dd>
+      <dt><%= f.label :'length_worked', t('view.profile_length_worked') %></dt>
+      <dd><%= f.text_field :length_worked, placeholder: 'aaaa' %></dd>
+      <dt><%= f.label :'occupation', t('view.profile_occupation') %></dt>
+      <dd><%= f.text_field :occupation, placeholder: 'aaaa' %></dd>
+      <dt><%= f.label :'industry', t('view.profile_industry') %></dt>
+      <dd><%= f.text_field :industry %></dd>
+      <dt><%= f.label :'area', t('view.profile_area') %></dt>
+      <dd><%= f.select :area, Profile.areas.keys.to_a, {} %></dd>
+      <dt><%= f.label :'address', t('view.profile_address') %></dt>
+      <dd><%= f.text_field :address %></dd>
+      <dd><%= f.submit %></dd>
+    </dl>
+  </div>
+<% end %>

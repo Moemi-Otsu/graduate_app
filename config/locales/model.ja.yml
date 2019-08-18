@@ -19,3 +19,12 @@ ja:
         remember_me: "ログインを記憶"
       comment:
         text: "コメント"
+      profile:
+        hokkaido: "北海道"
+        tohoku: "東北"
+        kanto: "関東"
+        chubu: "中部"
+        kinki: "近畿"
+        chugoku: "中国"
+        kyushu: "九州"
+        okinawa: "沖縄"
