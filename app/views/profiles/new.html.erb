@@ -28,7 +28,7 @@
       <dt><%= f.label :'industry', t('view.profile_industry') %></dt>
       <dd><%= f.text_field :industry %></dd>
       <dt><%= f.label :'area', t('view.profile_area') %></dt>
-      <dd><%= f.select :area, Profile.areas.keys.to_a, {} %></dd>
+      <dd><%= select :area,:name,Profile.areas.keys.to_a %></dd>
       <dt><%= f.label :'address', t('view.profile_address') %></dt>
       <dd><%= f.text_field :address %></dd>
       <dd><%= f.submit %></dd>
