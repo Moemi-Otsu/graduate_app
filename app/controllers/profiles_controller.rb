@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+
   def new
     @profile = Profile.new
   end
@@ -19,17 +21,27 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile.id), notice: "プロフィールを編集しました。"
+    else
+      render 'edit'
+    end
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:age, :image, :image_cache, :working_company, :previous_company, :length_worked, :occupation, :industry, :area)
+    params.require(:profile).permit(:age, :image, :image_cache, :working_company, :previous_company, :length_worked, :occupation, :industry, :area, :address)
   end
 
-  def set_profiles
-    @blog = Blog.find(params[:id])
+  def set_profile
+    @profile = Profile.find(params[:id])
   end
 
 end

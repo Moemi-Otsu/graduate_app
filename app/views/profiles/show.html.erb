@@ -22,3 +22,7 @@
   <dt><%= t('view.profile_address') %></dt>
   <dd><%= @profile.address %></dd>
 </dl>
+
+<ul class="back_links">
+  <li><%= link_to t('view.btn_update'), edit_profile_path(@profile.id) %></li>
+</ul>
