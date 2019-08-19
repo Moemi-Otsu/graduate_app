@@ -249,11 +249,54 @@ ja:
   enums:
     profile:
       area:
-        hokkaido: "北海道"
-        tohoku: "東北"
-        kanto: "関東"
-        chubu: "中部"
-        kinki: "近畿"
-        chugoku: "中国"
-        kyushu: "九州"
-        okinawa: "沖縄"
+        hokkaido: 北海道
+        tohoku: 東北
+        kanto: 関東
+        chubu: 中部
+        kinki: 近畿
+        chugoku: 中国
+        kyushu: 九州
+        okinawa: 沖縄
+      occupation:
+        sales: 営業職
+        accounting: 経理
+        planning_management: 企画・管理
+        administration_assistant: 事務・アシスタント
+        sales_service: 販売・サービス職
+        professional: 専門職（コンサルや監査法人など）
+        financial_professionals: 金融系専門職
+        public_servants: 公務員
+        teachers_agriculture: 教員・農林水産関連職
+        technical: 技術職
+        medical: 医療系専門職
+        creative: クリエイター・クリエイティブ職
+      industry:
+        it_communication: IT・通信
+        internet_advertising: インターネット・広告・メディア
+        manufacturer_mechanical_electric: メーカー（機械・電気）
+        manufacturer: メーカー（素材・化学・食品・化粧品・その他）
+        trading_company: 商社
+        medical_company: 医薬品・医療機器・ライフサイエンス・医療系サービス
+        finance: 金融
+        construction_plant_real_estate: 建設・プラント・不動産
+        consulting: コンサルティング・専門事務所・監査法人・税理士法人・リサーチ
+        human_resources: 人材サービス・アウトソーシング・コールセンター
+        retail: 小売
+        restaurant: 外食
+        transportation_logistics: 運輸・物流
+        energy: エネルギー（電力・ガス・石油・新エネルギー）
+        travel: 旅行・宿泊・レジャー
+        security_cleaning: 警備・清掃
+        beauty_esthetic: 理容・美容・エステ
+        education: 教育
+        agriculture: 農林水産・鉱業
+        public_corporations: 公社・官公庁・学校・研究施設
+        ceremonial_occasion: 冠婚葬祭
+        other: その他
+      length_worked:
+        half_year: 半年以下
+        one_years: 1年以上
+        three_years: 3年以上
+        five_years: 5年以上
+        seven_years: 7年以上
+        ten_years: 10年以上
