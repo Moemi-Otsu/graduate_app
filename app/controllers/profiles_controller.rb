@@ -13,11 +13,17 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @profile = Profile.find(params[:id])
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:age, :image, :working_company, :previous_company, :length_worked, :occupation, :industry, :area)
+    params.require(:profile).permit(:age, :image, :image_cache, :working_company, :previous_company, :length_worked, :occupation, :industry, :area)
   end
+
+  def set_profiles
+    @blog = Blog.find(params[:id])
+  end
+
 end

@@ -18,7 +18,7 @@
       <dt><%= f.label :'area', t('view.profile_area') %></dt>
       <dd><%= f.select :area, Profile.areas_i18n.keys.map {|k| [Profile.areas_i18n[k], k]} %></dd>
       <dt><%= f.label :'image', t('view.profile_image') %></dt>
-      <dd><%= f.text_field :image %></dd>
+      <dd><%= f.file_field :image %></dd>
       <dt><%= f.label :'working_company', t('view.profile_working_company') %></dt>
       <dd><%= f.text_field :working_company, placeholder: '例)カンパニージャパン株式会社' %></dd>
       <dt><%= f.label :'length_worked', t('view.profile_length_worked') %></dt>
