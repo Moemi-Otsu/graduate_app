@@ -5,12 +5,20 @@
   <p><%= @profile.user.name %> さんのプロフィール</p>
 </div>
 <dl>
+  <dt><%= t('view.profile_age') %></dt>
   <dd><%= @profile.age %> 歳</dd>
+  <dt><%= t('view.profile_area') %></dt>
   <dd><%= @profile.area %></dd>
+  <dt><%= t('view.profile_working_company') %></dt>
   <dd><%= @profile.working_company %></dd>
+  <dt><%= t('view.profile_length_worked') %></dt>
   <dd><%= @profile.length_worked %></dd>
+  <dt><%= t('view.profile_occupation') %></dt>
   <dd><%= @profile.occupation %></dd>
+  <dt><%= t('view.profile_industry') %></dt>
   <dd><%= @profile.industry %></dd>
+  <dt><%= t('view.profile_previous_company') %></dt>
   <dd><%= @profile.previous_company %></dd>
+  <dt><%= t('view.profile_address') %></dt>
   <dd><%= @profile.address %></dd>
 </dl>
