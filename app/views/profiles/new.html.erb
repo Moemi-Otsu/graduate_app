@@ -15,6 +15,8 @@
     <dl>
       <dt><%= f.label :'age', t('view.profile_age') %></dt>
       <dd><%= f.text_field :age, placeholder: 'aaaa' %> 歳</dd>
+      <dt><%= f.label :'area', t('view.profile_area') %></dt>
+      <dd><%= f.select :area, Profile.areas_i18n.keys.map {|k| [Profile.areas_i18n[k], k]} %></dd>
       <dt><%= f.label :'image', t('view.profile_image') %></dt>
       <dd><%= f.text_field :image %></dd>
       <dt><%= f.label :'working_company', t('view.profile_working_company') %></dt>
@@ -27,8 +29,6 @@
       <dd><%= f.text_field :occupation, placeholder: 'aaaa' %></dd>
       <dt><%= f.label :'industry', t('view.profile_industry') %></dt>
       <dd><%= f.text_field :industry %></dd>
-      <dt><%= f.label :'area', t('view.profile_area') %></dt>
-      <dd><%= select :area,:name,Profile.areas.keys.to_a %></dd>
       <dt><%= f.label :'address', t('view.profile_address') %></dt>
       <dd><%= f.text_field :address %></dd>
       <dd><%= f.submit %></dd>

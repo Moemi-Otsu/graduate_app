@@ -19,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # View/Front
 gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
+gem 'enum_help'
 
 # User管理
 gem 'devise'

@@ -246,3 +246,14 @@ ja:
     profile_industry: 業種
     profile_area: お住まいのエリア
     profile_address: 住所
+  enums:
+    profile:
+      area:
+        hokkaido: "北海道"
+        tohoku: "東北"
+        kanto: "関東"
+        chubu: "中部"
+        kinki: "近畿"
+        chugoku: "中国"
+        kyushu: "九州"
+        okinawa: "沖縄"
