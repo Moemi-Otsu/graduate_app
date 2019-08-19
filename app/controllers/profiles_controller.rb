@@ -5,6 +5,12 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
+    if params[:image] != nil
+      image = MiniMagick::Image.read(params[:image])
+      image.resize_to_fill "100x100"
+      image.write "public/images/hoge.jpg"
+    end
     if @profile.save
       redirect_to profile_path(@profile.id), notice: "プロフィールを作成しました。"
     else
