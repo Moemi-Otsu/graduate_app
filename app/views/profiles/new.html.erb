@@ -1,3 +1,6 @@
+<h1><%= t('view.profile_h1') %></h1>
+  <p>プロフィールを入力してください。</p>
+
 <%= form_with(model: @profile, local: true) do |f| %>
 
   <% if @profile.errors.any? %>
@@ -13,9 +16,9 @@
 
   <div class="form">
     <dl>
-      <dt><%= f.label :'age', t('view.profile_age') %></dt>
+      <dt><%= f.label :'age', t('view.profile_age') %><span><%= t('view.icon_required') %></span></dt>
       <dd><%= f.text_field :age, placeholder: '年齢を入力してください' %> 歳</dd>
-      <dt><%= f.label :'area', t('view.profile_area') %></dt>
+      <dt><%= f.label :'area', t('view.profile_area') %><span><%= t('view.icon_required') %></span></dt>
       <dd><%= f.select :area, Profile.areas_i18n.keys.map {|k| [Profile.areas_i18n[k], k]} %></dd>
       <dt><%= f.label :'image', t('view.profile_image') %></dt>
       <dd><%= f.file_field :image %></dd>
@@ -23,9 +26,9 @@
       <dd><%= f.text_field :working_company, placeholder: '例)カンパニージャパン株式会社' %></dd>
       <dt><%= f.label :'length_worked', t('view.profile_length_worked') %></dt>
       <dd><%= f.select :length_worked, Profile.length_workeds_i18n.keys.map {|k| [Profile.length_workeds_i18n[k], k]} %></dd>
-      <dt><%= f.label :'occupation', t('view.profile_occupation') %></dt>
+      <dt><%= f.label :'occupation', t('view.profile_occupation') %><span><%= t('view.icon_required') %></span></dt>
       <dd><%= f.select :occupation, Profile.occupations_i18n.keys.map {|k| [Profile.occupations_i18n[k], k]} %></dd>
-      <dt><%= f.label :'industry', t('view.profile_industry') %></dt>
+      <dt><%= f.label :'industry', t('view.profile_industry') %><span><%= t('view.icon_required') %></span></dt>
       <dd><%= f.select :industry, Profile.industries_i18n.keys.map {|k| [Profile.industries_i18n[k], k]} %></dd>
       <dt><%= f.label :'previous_company', t('view.profile_previous_company') %></dt>
       <dd><%= f.text_field :previous_company, placeholder: '例)ジャパンテクノロジー株式会社' %></dd>
