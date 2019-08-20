@@ -11,7 +11,7 @@ gem 'puma', '~> 3.11'
 
 # Backend
 gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
+# gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'uglifier', '>= 1.3.0'
@@ -32,6 +32,10 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  # RSpec
+  gem 'rspec-rails'
+  # rails consoleでも動作確認できるように、gemfileでは :testだけでなく :developmentにも定義
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -43,9 +47,11 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
+  # selenium-webdriverとchromedriver-helperのgemは実行時に警告が出る。
+  # webdriversに統合されたので入れ替える。
+  # gem 'selenium-webdriver'
+  # gem 'chromedriver-helper'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
