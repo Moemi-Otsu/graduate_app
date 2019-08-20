@@ -1,4 +1,5 @@
 class Talk < ApplicationRecord
+  belongs_to :user
   has_many :talk_categories, dependent: :destroy
   has_many :categories, through: :talk_categories
   has_many :comments, dependent: :destroy
