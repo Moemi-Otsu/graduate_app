@@ -19,6 +19,7 @@ class TalksController < ApplicationController
   def create
     # binding.pry
     @talk = Talk.new(talk_params)
+    @talk.user_id = current_user.id
     if @talk.save
       redirect_to talks_path, notice: "相談を投稿しました！"
     else
@@ -28,6 +29,7 @@ class TalksController < ApplicationController
 
   def confirm
     @talk = Talk.new(talk_params)
+    @talk.user_id = current_user.id
     render :new if @talk.invalid?
   end
 
