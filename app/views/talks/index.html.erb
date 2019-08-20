@@ -24,7 +24,7 @@
         </p>
         <ul>
           <li><span><%= t.comments.size %></span>コメント</p></li>
-          <li>2019.8.10</li>
+          <li><%= t.created_at.strftime("%Y年%m月%d日") %></li>
         </ul>
       </div>
       <p class="taild_box_title">
