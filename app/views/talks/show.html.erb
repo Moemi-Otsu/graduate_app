@@ -14,7 +14,7 @@
     </p>
     <ul>
       <li><span>0</span>コメント</p></li>
-      <li>2019.8.10</li>
+      <li><%= @talk.created_at.strftime("%Y年%m月%d日 %H時%M分") %></li>
     </ul>
   </div>
   <p><%= @talk.content %></p>
