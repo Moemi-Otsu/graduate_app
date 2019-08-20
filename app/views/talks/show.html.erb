@@ -7,8 +7,8 @@
   </ul>
   <div class="talk_box_header">
     <p>
-      <%= link_to talks_path do %>
-        <img src="">
+      <%= link_to profile_path(@talk.user.profile.id) do %>
+        <%= image_tag @talk.user.profile.image.url %>
         <%= @talk.user.name %> さん
       <% end %>
     </p>

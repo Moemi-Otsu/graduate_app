@@ -17,8 +17,8 @@
     <div class="talk_box">
       <div class="talk_box_header">
         <p>
-          <%= link_to talks_path do %>
-            <img src="">
+          <%= link_to profile_path(t.user.profile.id) do %>
+            <%= image_tag t.user.profile.image.url %>
             <%= t.user.name %> さん
           <% end %>
         </p>
