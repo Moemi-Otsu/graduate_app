@@ -1,8 +1,11 @@
 class TalksController < ApplicationController
   before_action :set_talk, only: [:show, :edit, :update, :destroy]
+  # 未ログイン状態でも、閲覧は可能
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
     @talks = Talk.all
+    @categories = Category.all
   end
 
   def new

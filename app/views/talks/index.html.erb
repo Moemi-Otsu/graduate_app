@@ -2,15 +2,13 @@
 
 <div>
 
-<%= notice %>
-
   <div class="box">
     <h2><%= t('view.talk_index_h2_category') %></h2>
-    <ul>
-      <li><%= link_to t('view.talk_index_h2_category'), talks_path %></li>
-      <li><%= link_to t('view.talk_index_h2_category'), talks_path %></li>
-      <li><%= link_to t('view.talk_index_h2_category'), talks_path %></li>
-    </ul>
+    <% @categories.each do |i| %>
+      <ul>
+        <li><%= link_to i.name, talks_path %></li>
+      </ul>
+    <% end %>
   </div>
 
   <div class="box">
