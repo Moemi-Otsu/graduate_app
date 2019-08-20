@@ -17,7 +17,6 @@ class TalksController < ApplicationController
   end
 
   def create
-    # binding.pry
     @talk = Talk.new(talk_params)
     @talk.user_id = current_user.id
     if @talk.save
