@@ -17,13 +17,14 @@
     <div class="talk_box">
       <div class="talk_box_header">
         <p>
-          <%= link_to talks_path do %>
-            <img src="">ひこにゃん
+          <%= link_to profile_path(t.user.profile.id) do %>
+            <%= image_tag t.user.profile.image.url %>
+            <%= t.user.name %> さん
           <% end %>
         </p>
         <ul>
-          <li><span>0</span>コメント</p></li>
-          <li>2019.8.10</li>
+          <li><span><%= t.comments.size %></span>コメント</p></li>
+          <li><%= t.created_at.strftime("%Y年%m月%d日") %></li>
         </ul>
       </div>
       <p class="taild_box_title">
