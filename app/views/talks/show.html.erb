@@ -26,12 +26,32 @@
 </div>
 
 <div class="comments_box">
-  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
-  <div id="comments_area">
-    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-    <%= render partial: 'comments/index', locals: { comments: @comments, talk: @talk } %>
-  </div>
-
-  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-  <%= render partial: 'comments/form', locals: { comment: @comment, talk: @talk } %>
+  <h2>コメント一覧</h2>
+  <% @comments.each do |c| %>
+    <div class="user_comment">
+      <div>
+        <%= link_to profile_path(c.user.profile.id) do %>
+          <%= image_tag c.user.profile.image.url %>
+          <%= c.user.name %> さん
+        <% end %>
+        <% if c.user.profile.working_company.present? %>
+          <p>現在のお勤め先：<%= c.user.profile.working_company %></p>
+        <% end %>
+        <p><span><%= c.created_at.strftime("%Y年%m月%d日 %H時%M分") %></span></p>
+      </div>
+      <p><%= c.content %></p>
+      <% if current_user.id == c.user_id %>
+        <div class="dropdown">
+          <button type="button" id="dropdown1" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ▼
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdown1">
+            <li><%= link_to '編集', edit_talk_comment_path(@talk.id, c.id) %></li>
+            <li><%= link_to '削除', talk_comment_path(@talk.id, c.id), method: :delete, data:{ confirm: "本当に削除しますか？"} %></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <%= link_to 'コメントする', new_talk_comment_path(@talk.id) %>
 </div>

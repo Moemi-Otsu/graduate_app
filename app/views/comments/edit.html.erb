@@ -1,0 +1,20 @@
+<h1><%= t('view.comment_h1') %></h1>
+
+<%= form_with(model: @comment, local: true, url: polymorphic_path([@talk, @comment])) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @comment.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="comment_title">
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+  <%= f.submit %>
+<% end %>
