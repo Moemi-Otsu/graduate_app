@@ -1,9 +1,12 @@
-<h1></h1>
+<h1><%= @profile.user.name %> さんのプロフィール</h1>
 
 <div>
   <%= image_tag @profile.image.url %>
-  <p><%= @profile.user.name %> さんのプロフィール</p>
+  <p><%= @profile.user.name %> さん</p>
 </div>
+
+<%= render 'navs' %>
+
 <dl>
   <dt><%= t('view.profile_age') %></dt>
   <dd><%= @profile.age %> 歳</dd>
@@ -22,7 +25,3 @@
   <dt><%= t('view.profile_address') %></dt>
   <dd><%= @profile.address %></dd>
 </dl>
-
-<ul class="back_links">
-  <li><%= link_to t('view.btn_update'), edit_profile_path(@profile.id) %></li>
-</ul>

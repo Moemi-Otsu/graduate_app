@@ -1,0 +1,8 @@
+<% if current_user.id == @profile.user_id %>
+  <ul class="profile_navs">
+    <li><%= link_to t('view.profile_h1'), profile_path(@profile.id) %></li>
+      <li><%= link_to t('view.profile_talks'), talks_profile_path(@profile.id) %></li>
+      <li><%= link_to t('view.profile_comments'), comments_profile_path(@profile.id) %></li>
+      <li><%= link_to t('view.btn_update'), edit_profile_path(@profile.id) %></li>
+  </ul>
+<% end %>

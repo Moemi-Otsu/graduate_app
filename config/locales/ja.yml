@@ -239,6 +239,8 @@ ja:
     devise_receive_unlock: ロック解除の連絡を受け取っていませんか？
     alert_characters_minimum: 文字以上
     profile_h1: プロフィール
+    profile_talks: 相談
+    profile_comments: コメント
     profile_age: 年齢
     profile_image: プロフィール画像
     profile_working_company: 現在所属している企業名
