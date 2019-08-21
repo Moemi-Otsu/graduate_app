@@ -27,5 +27,10 @@
 
 <div class="comments_box">
   <h2>コメント一覧</h2>
+  <% @comments.each do |c| %>
+  <div>
+    <%= c.content %>
+  </div>
+  <% end %>
   <%= link_to 'コメントする', new_talk_comment_path(@talk.id) %>
 </div>
