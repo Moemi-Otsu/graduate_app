@@ -9,7 +9,7 @@
           ▼
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdown1">
-          <!--<li><%= link_to '編集', edit_talk_comment_path(comment.talk_id, comment.id), remote: true %></li>-->
+          <li><%= link_to '編集', edit_talk_comment_path(comment.talk_id, comment.id), remote: true %></li>
           <li><%= link_to '削除', talk_comment_path(comment.talk_id, comment.id), method: :delete, remote: true, data: { confirm: '本当に削除しますか？' } %></li>
         </ul>
       </div>
@@ -17,3 +17,5 @@
     <% end %>
   <% end %>
 </ul>
+
+<div id ="edit_area"></div>
