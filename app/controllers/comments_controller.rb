@@ -21,10 +21,12 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(comment_params)
-      redirect_to talk_path(@talk.id), notice: "コメントを編集しました。"
-    else
-      render 'edit'
+    if current_user.id == @comment.user_id
+      if @comment.update(comment_params)
+        redirect_to talk_path(@talk.id), notice: "コメントを編集しました。"
+      else
+        render 'edit'
+      end
     end
   end
 
