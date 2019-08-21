@@ -28,18 +28,26 @@
 <div class="comments_box">
   <h2>コメント一覧</h2>
   <% @comments.each do |c| %>
-  <div class="user_comment">
-    <p>
-      <%= link_to profile_path(c.user.profile.id) do %>
-        <%= image_tag c.user.profile.image.url %>
-        <%= c.user.name %> さん
-      <% end %>
-      <% if c.user.profile.working_company.present? %>
-        現在のお勤め先：<%= c.user.profile.working_company %>
-      <% end %>
-    </p>
-    <p><%= c.content %></p>
-  </div>
+    <div class="user_comment">
+      <p>
+        <%= link_to profile_path(c.user.profile.id) do %>
+          <%= image_tag c.user.profile.image.url %>
+          <%= c.user.name %> さん
+        <% end %>
+        <% if c.user.profile.working_company.present? %>
+          現在のお勤め先：<%= c.user.profile.working_company %>
+        <% end %>
+      </p>
+      <p><%= c.content %></p>
+      <div class="dropdown">
+        <button type="button" id="dropdown1" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ▼
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdown1">
+          <li><%= link_to '編集', edit_talk_comment_path(@talk.id, c.id) %></li>
+        </ul>
+      </div>
+    </div>
   <% end %>
   <%= link_to 'コメントする', new_talk_comment_path(@talk.id) %>
 </div>

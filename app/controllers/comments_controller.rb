@@ -1,24 +1,31 @@
 class CommentsController < ApplicationController
+  before_action :parent_talk
   before_action :set_comment, only: [:edit, :update, :destroy]
 
   def new
-    @talk = Talk.find(params[:talk_id])
     @comment = @talk.comments.build
   end
 
   def create
     @comment = Comment.new(comment_params)
-    @talk = Talk.find(params[:talk_id])
     @comment.talk_id = @talk.id
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to talk_path(@talk.id)
+      redirect_to talk_path(@talk.id), notice: "コメントを投稿しました。"
     else
       render 'new'
     end
   end
 
   def edit
+  end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to talk_path(@talk.id), notice: "コメントを編集しました。"
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -28,6 +35,10 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:talk_id, :content)
+  end
+
+  def parent_talk
+    @talk = Talk.find(params[:talk_id])
   end
 
   def set_comment
