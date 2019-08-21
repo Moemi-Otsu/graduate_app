@@ -29,6 +29,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment.destroy
+    redirect_to talk_path(@talk.id), notice: "コメントを削除しました。"
   end
 
   private
