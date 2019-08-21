@@ -248,6 +248,7 @@ ja:
     profile_industry: 業種
     profile_area: お住まいのエリア
     profile_address: 住所
+    comment_h1: コメントする
   enums:
     profile:
       area:

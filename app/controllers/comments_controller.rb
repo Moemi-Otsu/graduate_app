@@ -6,19 +6,15 @@ class CommentsController < ApplicationController
     @comment = @talk.comments.build
   end
 
-  # コメントを保存、投稿するためのアクションです。
   def create
-    # Talkをパラメータの値から探し出し,Talkに紐づくcommentsとしてbuildします。
+    @comment = Comment.new(comment_params)
     @talk = Talk.find(params[:talk_id])
-    @comment = @talk.comments.build(comment_params)
-    # クライアント要求に応じてフォーマットを変更
-    # respond_to do |format|
-    #   if @comment.save
-    #     format.js { render :index }
-    #   else
-    #     format.html { redirect_to talk_path(@talk), notice: "投稿できませんでした…" }
-    #   end
-    # end
+    @comment.talk_id = @talk.id
+    if @comment.save
+      redirect_to talk_path(@talk.id)
+    else
+      render 'new'
+    end
   end
 
   def edit

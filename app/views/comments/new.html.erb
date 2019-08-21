@@ -1,3 +1,5 @@
+<h1><%= t('view.comment_h1') %></h1>
+
 <%= form_with(model: @comment, local: true, url: talk_comments_path(@talk.id)) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
