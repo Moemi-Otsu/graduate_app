@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @talk = Talk.find(params[:talk_id])
     @comment.talk_id = @talk.id
+    @comment.user_id = current_user.id
     if @comment.save
       redirect_to talk_path(@talk.id)
     else
