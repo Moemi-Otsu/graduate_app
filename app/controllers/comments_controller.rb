@@ -27,12 +27,18 @@ class CommentsController < ApplicationController
       else
         render 'edit'
       end
+    else
+      redirect_to talk_path(@talk.id), notice: "投稿者以外は編集できません。"
     end
   end
 
   def destroy
-    @comment.destroy
-    redirect_to talk_path(@talk.id), notice: "コメントを削除しました。"
+    if current_user.id == @comment.user_id
+      @comment.destroy
+      redirect_to talk_path(@talk.id), notice: "コメントを削除しました。"
+    else
+      redirect_to talk_path(@talk.id), notice: "投稿者以外は編集できません。"
+    end
   end
 
   private
