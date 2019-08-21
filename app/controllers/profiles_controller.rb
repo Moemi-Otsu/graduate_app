@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :talks, :comments]
 
   def new
     @profile = Profile.new
@@ -29,6 +29,12 @@ class ProfilesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def talks
+  end
+
+  def comments
   end
 
   private

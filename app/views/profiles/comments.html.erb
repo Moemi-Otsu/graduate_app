@@ -1,0 +1,14 @@
+<h1><%= @profile.user.name %> さんの<%= t('view.profile_comments') %></h1>
+
+<%= render 'navs' %>
+
+<div class="comment_talk_box">
+<% @profile.user.comments.each do |c| %>
+  <div class="comment_talk">
+    <%= link_to talk_path(c.talk.id) do %>
+      <p><%= c.content %></p>
+    <% end %>
+    <p><%= c.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
+  </div>
+<% end %>
+</div>

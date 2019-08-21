@@ -41,16 +41,24 @@ class TalksController < ApplicationController
   end
 
   def update
-    if @talk.update(talk_params)
-      redirect_to talks_path, notice: "編集しました。"
+    if current_user.id == @talk.id
+      if @talk.update(talk_params)
+        redirect_to talks_path, notice: "編集しました。"
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      redirect_to talks_path, notice: "投稿者以外は編集できません。"
     end
   end
 
   def destroy
-    @talk.destroy
-    redirect_to talks_path, notice:"削除しました！"
+    if current_user.id == @talk.id
+      @talk.destroy
+      redirect_to talks_path, notice:"削除しました！"
+    else
+      redirect_to talks_path, notice: "投稿者以外は削除できません。"
+    end
   end
 
   private
