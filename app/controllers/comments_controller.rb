@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :parent_talk
   before_action :set_comment, only: [:edit, :update, :destroy]
+  # before_save :hoge, only: [ :create, :update ]
 
   def new
     @comment = @talk.comments.build
@@ -53,6 +54,10 @@ class CommentsController < ApplicationController
 
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def talk_complete_check
+    if @talk.complete.present?
   end
 
 end
