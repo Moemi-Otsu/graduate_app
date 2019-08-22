@@ -63,5 +63,7 @@
       <% end %>
     </div>
   <% end %>
-  <%= link_to 'コメントする', new_talk_comment_path(@talk.id) %>
+  <% unless @talk.complete.present? %>
+    <%= link_to 'コメントする', new_talk_comment_path(@talk.id) %>
+  <% end %>
 </div>
