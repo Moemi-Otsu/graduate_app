@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   end
   # category
   resources :categories
+  resources :likes, only: [:create, :destroy]
 end
