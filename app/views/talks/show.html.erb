@@ -4,6 +4,15 @@
   <% if @talk.complete.present? %>
     <p>この相談は解決済みとなり、コメントを締め切りました。</p>
   <% end %>
+  
+  <% unless @talk.user_id == current_user.id %>
+    <% if @like.present? %>
+      <%= link_to 'お気に入り解除する', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to 'お気に入りする', likes_path(talk_id: @talk.id), method: :post, class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+
   <% if current_user.id == @talk.user_id %>
     <ul class="talk_utility">
       <li><%= link_to t('view.talk_btn_edit'), edit_talk_path(@talk.id) %></li>
