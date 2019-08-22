@@ -34,7 +34,7 @@ class TalksController < ApplicationController
 
   def show
     @comments = @talk.comments
-    @like = current_user.likes.find_by(talk_id: @talk.id)
+    @like = current_user.likes.find_by(talk_id: @talk.id) if current_user.present?
   end
 
   def edit
