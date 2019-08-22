@@ -10,10 +10,15 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.talk_id = @talk.id
     @comment.user_id = current_user.id
-    if @comment.save
-      redirect_to talk_path(@talk.id), notice: "コメントを投稿しました。"
+    # talkのcompleteがtrueの場合はコメント打ち切り（本当はコールバックで実装したい）
+    if @talk.complete.present?
+      redirect_to talk_path(@talk.id), notice: "コメントは打ち切られたので投稿できません。"
     else
-      render 'new'
+      if @comment.save
+        redirect_to talk_path(@talk.id), notice: "コメントを投稿しました。"
+      else
+        render 'new'
+      end
     end
   end
 

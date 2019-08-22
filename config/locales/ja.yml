@@ -226,6 +226,8 @@ ja:
     talk_index_h2_category: 相談カテゴリー
     talk_title: 相談タイトル
     talk_content: 相談内容
+    talk_complete_true: 相談を解決(コメントを締め切る)
+    talk_complete_false: 相談解決を解除
     talk_title_placeholder: 相談したいタイトルを入力しましょう
     talk_content_placeholder: 相談したい内容を入力しましょう
     category_name: カテゴリ

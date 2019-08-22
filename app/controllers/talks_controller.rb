@@ -41,7 +41,7 @@ class TalksController < ApplicationController
   end
 
   def update
-    if current_user.id == @talk.id
+    if current_user.id == @talk.user_id
       if @talk.update(talk_params)
         redirect_to talks_path, notice: "編集しました。"
       else
