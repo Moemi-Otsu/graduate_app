@@ -1,0 +1,7 @@
+<div class="search_box">
+  <%= search_form_for @talks do |f| %>
+    <%= f.label :title %>
+    <%= f.search_field :title_cont, placeholder: "検索ワード" %>
+    <%= f.submit %>
+  <% end %>
+</div>

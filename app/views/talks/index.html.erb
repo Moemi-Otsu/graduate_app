@@ -1,5 +1,7 @@
 <h1><%= t('view.talk_index_h1') %></h1>
 
+<%= render 'search' %>
+
 <div>
 
   <div class="box">
@@ -13,7 +15,7 @@
 
   <div class="box">
     <h2><%= t('view.talk_index_h2_new') %></h2>
-  <% @talks.each do |talk| %>
+  <% @search_talks.each do |talk| %>
     <div class="talk_box">
       <div class="talk_box_header">
         <p>

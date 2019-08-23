@@ -4,7 +4,9 @@ class TalksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
-    @talks = Talk.all
+    # ransak-検索
+    @talks = Talk.ransack(params[:q])
+    @search_talks = @talks.result(distinct: true)
     @categories = Category.all
   end
 
@@ -69,6 +71,9 @@ class TalksController < ApplicationController
 
   def set_talk
     @talk = Talk.find(params[:id])
+  end
+
+  def talk_search
   end
 
 end
