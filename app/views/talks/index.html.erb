@@ -13,40 +13,33 @@
 
   <div class="box">
     <h2><%= t('view.talk_index_h2_new') %></h2>
-  <% @talks.each do |t| %>
+  <% @talks.each do |talk| %>
     <div class="talk_box">
       <div class="talk_box_header">
         <p>
-          <%= link_to profile_path(t.user.profile.id) do %>
-            <%= image_tag t.user.profile.image.url %>
-            <%= t.user.name %> さん
+          <%= link_to profile_path(talk.user.profile.id) do %>
+            <%= image_tag talk.user.profile.image.url %>
+            <%= talk.user.name %> さん
           <% end %>
         </p>
         <ul>
-          <li><span><%= t.comments.size %></span>コメント</p></li>
-          <li><%= t.created_at.strftime("%Y年%m月%d日") %></li>
-          <!-- お気に入り begin -->
-          <% if current_user.present? %>
-            <% @like = current_user.likes.find_by(talk_id: t.id) %>
-            <li>
-              <% unless t.user_id == current_user.id %>
-                <% if @like.present? %>
-                  <%= link_to 'お気に入り解除する', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>
-                <% else %>
-                  <%= link_to 'お気に入りする', likes_path(talk_id: t.id), method: :post, class: 'btn btn-primary' %>
-                <% end %>
-              <% end %>
-            </li>
-          <% end %>
-          <!-- お気に入り end -->
+          <li><span><%= talk.comments.size %></span>コメント</p></li>
+          <li><%= talk.created_at.strftime("%Y年%m月%d日") %></li>
+          <!--いいね-->
+          <li>
+            <div id="likes_buttons_<%= talk.id %>">
+            <%= render partial: 'likes/like', locals: { talk: talk, likes: @likes} %>
+            </div>
+          </li>
+          <!--いいね-->
         </ul>
       </div>
       <p class="taild_box_title">
-      <%= link_to talk_path(t.id) do %>
-        <%= t.title %>
+      <%= link_to talk_path(talk.id) do %>
+        <%= talk.title %>
       <% end %>
       </p>
-      <p class="taild_box_content"><%= t.content %></p>
+      <p class="taild_box_content"><%= talk.content %></p>
     </div>
   <% end %>
   </div>
