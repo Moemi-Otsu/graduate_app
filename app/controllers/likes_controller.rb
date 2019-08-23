@@ -1,13 +1,23 @@
 class LikesController < ApplicationController
+  before_action :set_talk
 
   def create
-    like = current_user.likes.create(talk_id: params[:talk_id])
-    redirect_to talks_url, notice: "#{like.talk.user.name}さんの相談をお気に入り登録しました"
+    @like = Like.create(user_id: current_user.id, talk_id: params[:talk_id])
+    @likes = Like.where(talk_id: params[:talk_id])
+    @talk.reload
   end
 
   def destroy
-    like = current_user.likes.find_by(id: params[:id]).destroy
-    redirect_to talks_url, notice: "#{like.talk.user.name}さんの相談をお気に入り解除しました"
+    like = Like.find_by(user_id: current_user.id, talk_id: params[:talk_id])
+    like.destroy
+    @likes = Like.where(talk_id: params[:talk_id])
+    @talk.reload
+  end
+
+  private
+
+  def set_talk
+    @talk = Talk.find(params[:talk_id])
   end
 
 end

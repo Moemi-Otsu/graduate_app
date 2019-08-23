@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       post :confirm
     end
     resources :comments
+    resources :likes, only: [:create, :destroy]
   end
   # profile
   resources :profiles do
@@ -21,5 +22,4 @@ Rails.application.routes.draw do
   end
   # category
   resources :categories
-  resources :likes, only: [:create, :destroy]
 end
