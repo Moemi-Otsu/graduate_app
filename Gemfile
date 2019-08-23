@@ -22,9 +22,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'enum_help'
 gem 'carrierwave'
 gem 'mini_magick'
-
 # User管理
 gem 'devise'
+# 検索
+gem 'ransack'
 
 group :development, :test do
   # バグfix系ツール
