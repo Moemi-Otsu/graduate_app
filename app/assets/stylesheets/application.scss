@@ -55,6 +55,25 @@ a:hover { color: $font_hover_color; text-decoration: none; }
   font-size: 1.5em;//スタイルの追加
 }
 
+/* flash message */
+.flash_m {
+  background-color: #f00;
+  padding: 13px 30px;
+  text-align: center;
+}
+
+.notice {
+  background-color: #c2eeda;
+  border: 1px solid #7be7b6;
+  color: #009e07;
+}
+
+.alert {
+  background-color: #f8dfdf;
+  border: 1px solid #ff8e8e;
+  color: #ff8e8e;
+}
+
 /* --------------------------------------- */
 
 html {
