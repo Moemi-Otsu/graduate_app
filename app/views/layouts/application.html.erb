@@ -45,15 +45,27 @@
 
       </div>
 
-      <% if request.path == '/' or request.path == '/talks/top' %>
+      <% if check_page('talks', 'top') %>
         <div class="main_visual">
           <h1>お悩み</h1>
           <p>ああああああああああああああああああああ</p>
         </div>
       <% end %>
-    
-      <div class="main_column container">
-        <%= yield %>
+
+      <!-- Main Contents -->
+      <div class="columns_wrapper container">
+        <% if check_page('talks', 'index') or check_page('talks', 'top') %>
+          <div class="main_column col-md-9">
+            <%= yield %>
+          </div>
+          <div class="main_column col-md-3">
+            <%= yield %>
+          </div>
+        <% else %>
+          <div class="main_column col-md-12">
+            <%= yield %>
+          </div>
+        <% end %>
       </div>
 
       <div class="footer">

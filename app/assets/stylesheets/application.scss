@@ -137,10 +137,14 @@ div.main_visual {
   height: 300px;
 }
 
+/* columns_wrapper */
+div.columns_wrapper {
+  margin-top: 40px;
+}
+
 /* Main_column */
 div.main_column {
   min-height: 100%;
-  margin-top: 40px;
   // これをとるとfooterが浮く
   padding-bottom: 60px;
 }
