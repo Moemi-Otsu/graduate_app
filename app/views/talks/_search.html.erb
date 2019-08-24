@@ -1,0 +1,10 @@
+<div class="search_box">
+  <%= search_form_for @talks do |f| %>
+    <%= f.label :'title_or_content', t('view.search_title_or_content') %>
+    <%= f.search_field :title_or_content_cont, placeholder: "検索ワード" %>
+    <%= f.label :'categories', t('view.search_category') %>
+    <%= f.collection_radio_buttons :categories_id_in, @categories, :id, :name %>
+    <%= f.submit %>
+    <%= link_to 'リセット', talks_path %>
+  <% end %>
+</div>
