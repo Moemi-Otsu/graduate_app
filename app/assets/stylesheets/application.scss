@@ -32,6 +32,7 @@ $font_link_color: #2da2a8;
 $font_hover_color: #2cbfc7;
 $header_height: 70px;
 $border_right_gray: 1px solid #e5e5e5;
+$admin_font_color: #a2ebdf;
 
 /* default */
 a { color: $font_link_color; }
@@ -102,6 +103,22 @@ div.box {
   h2 {
     font-size: 1.3rem;
     margin-bottom: 10px;
+  }
+}
+
+/* Admin Nav */
+div.admin_nav {
+  background-color: $font_color;
+  padding: 12px 30px;;
+  font-size: $font_size_s;
+  p {
+    float: left;
+    color: $admin_font_color;
+  }
+  ul { float: left;
+    li { display: inline; margin-left: 15px; }
+    li a { color: $admin_font_color; }
+    li a:hover { color: #fff; }
   }
 }
 

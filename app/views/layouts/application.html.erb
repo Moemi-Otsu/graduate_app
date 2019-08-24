@@ -9,10 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-
   <body>
     <div class="wrapper">
 
+      <!-- Flash Messages -->
       <% if notice %>
         <p class="flash_m container-fluid notice"><%= notice %></p>
       <% end %>
@@ -20,9 +20,19 @@
         <p class="flash_m container-fluid alert"><%= alert %></p>
       <% end %>
 
+      <!-- Admin Nav -->
+      <% if user_signed_in? %><!-- user role ができたら処理変更 -->
+        <div class="admin_nav container-fluid">
+          <p>管理者メニュー：</p>
+          <ul>
+            <li><%= link_to t('view.category_index_h1'), new_talk_path %></li>
+          </ul>
+        </div>
+      <% end %>
+
+      <!-- Header -->
       <div class="header container-fluid clearfix">
         <div class="logo">Talk With</div>
-
         <% if user_signed_in? %>
           <ul class="global_nav">
             <li><%= link_to t('view.talk_index_h1'), talks_path %></li>
@@ -33,18 +43,15 @@
               <li><%= link_to t('view.user_mypage'), profile_path(current_user.profile.id) %></li>
             <% end %>
           </ul>
-          <ul class="global_nav">
-            <li><%= link_to t('view.category_index_h1'), new_talk_path %></li>
-          </ul>
         <% else %>
           <ul class="global_nav">
             <li><%= link_to t('view.user_new'), new_user_registration_path %></li>
             <li><%= link_to t('view.user_login'), new_user_session_path %></li>
           </ul>
         <% end %>
-
       </div>
 
+      <!-- Main Visual -->
       <% if check_page('talks', 'top') %>
         <div class="main_visual">
           <h1>お悩み</h1>
@@ -68,6 +75,7 @@
         <% end %>
       </div>
 
+      <!-- Footer -->
       <div class="footer">
         <p>©2019 Talk With</p>
       </div>
