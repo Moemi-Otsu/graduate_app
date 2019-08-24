@@ -26,6 +26,7 @@ $bottom_30: 0 0 30px 0;
 $left_30: 0 0 0 30px;
 $font_size_s: 0.9rem;
 $font_size_xs: 0.7rem;
+$font_size_m: 1.3rem;
 $font_color: #454545;
 $font_color_right: #666666;
 $font_link_color: #2da2a8;
@@ -33,10 +34,12 @@ $font_hover_color: #2cbfc7;
 $header_height: 70px;
 $border_right_gray: 1px solid #e5e5e5;
 $admin_font_color: #a2ebdf;
+$a_pink: #ffa1a1;
+$a_pink_hover: #ffb5b5;
 
 /* default */
-a { color: $font_link_color; }
-a:hover { color: $font_hover_color; text-decoration: none; }
+a { color: $font_link_color; transition: all 0.2s ease 0s; }
+a:hover { color: $font_hover_color; text-decoration: none; transition: all 0.2s ease 0s; }
 .clearfix::after {
   content: "";
   display: block;
@@ -44,13 +47,13 @@ a:hover { color: $font_hover_color; text-decoration: none; }
 }
 
 /* @expand */
-.btn{
+.btn {
   padding: 10px 20px;
   border: 2px solid blue;
   border-radius: 3px;
   background-color: lightgray;
 }
-.btn-submit{
+.btn-submit {
   @extend .btn;//.btnのスタイルを継承
   background-color: lightblue;//スタイルの上書き
   font-size: 1.5em;//スタイルの追加
@@ -164,6 +167,58 @@ div.main_column {
   min-height: 100%;
   // これをとるとfooterが浮く
   padding-bottom: 60px;
+}
+
+/* Talk Box */
+div.talk_box {
+  background-color: #ccc;
+  margin-bottom: 15px;
+  padding: 15px 20px 25px 20px;
+  div.talk_box_header{
+    $talk_box_header_height: 35px;
+    ul {
+      float: left;
+      height: $talk_box_header_height;
+      a.user_link { float: left;
+        img {
+          width: $talk_box_header_height;
+          height: $talk_box_header_height;
+          object-fit: cover; 
+          border-radius: 50%;
+        }
+      }
+      li {
+        float: left;
+        margin-left: 10px;
+        line-height: $talk_box_header_height;
+        div.vertical_like {
+          i { vertical-align: sub; font-size: $font_size_m; }
+        }
+      }
+      li:first-child { margin-left: 0; }
+    }
+    ul.talk_box_right {
+      float: right; 
+      font-size: 1.2rem;
+      font-family: $marck_script;
+      color: #666666;
+      li { margin-left: 20px; }
+      a { color: $a_pink; }
+      a:hover { color: $a_pink_hover; }
+      span { font-size: 1.4rem; font-weight: bold; }
+    }
+  }
+  div.talk_box_main {
+    clear: both;
+    p { padding-top: 15px; }
+    p.talk_box_title {
+      font-size: $font_size_m;
+      font-weight: bold;
+      a { color: $font_color; }
+      a:hover { color: $font_hover_color; }
+    }
+    p.talk_box_content {}
+  }
 }
 
 /* Footer */
