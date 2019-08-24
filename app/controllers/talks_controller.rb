@@ -6,8 +6,9 @@ class TalksController < ApplicationController
   def index
     # ransak-検索
     @talks = Talk.ransack(params[:q])
-    @search_talks = @talks.result(distinct: true)
     @categories = Category.all
+    @search_talks = @talks.result.includes(:categories)
+    # @search_talks = @talks.result.includes(:categories) if params[:q]
   end
 
   def new
