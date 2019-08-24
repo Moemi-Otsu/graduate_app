@@ -15,40 +15,62 @@
  *= require_self
  */
 
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Marck+Script&display=swap');
+
+/* 変数 */
+$kosugi: 'Kosugi Maru', sans-serif;
+$marck_script: 'Marck Script', cursive;
+$bottom_30: 0 0 30px 0;
+$left_30: 0 0 0 30px;
+$font_size_s: 0.9rem;
+$font_size_xs: 0.7rem;
+$font_color: #454545;
+$font_color_right: #666666;
+$font_link_color: #2da2a8;
+$font_hover_color: #2cbfc7;
+$header_height: 70px;
+$border_right_gray: 1px solid #e5e5e5;
+
+/* default */
+a { color: $font_link_color; }
+a:hover { color: $font_hover_color; text-decoration: none; }
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
 /* @expand */
-
 .btn{
   padding: 10px 20px;
   border: 2px solid blue;
   border-radius: 3px;
   background-color: lightgray;
 }
-
 .btn-submit{
   @extend .btn;//.btnのスタイルを継承
   background-color: lightblue;//スタイルの上書き
   font-size: 1.5em;//スタイルの追加
 }
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
+/* --------------------------------------- */
 
-/* 変数 */
-$kosugi: 'Kosugi Maru', sans-serif;
-$bottom_30: 0 0 30px 0;
-$font_color: #454545;
-$font_link_color: #2da2a8;
-$font_hover_color: #2cbfc7;
-
-/* default */
-a { color: $font_link_color; }
-a:hover { color: $font_hover_color; text-decoration: none; }
+html {
+  height: 100%;
+}
 
 body {
   // font-family: $kosugi;
+  height: 100%;
   font-family: Roboto-Light,-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',YuGothic,'Yu Gothic','游ゴシック体','游ゴシック',Meiryo,sans-serif;
   color: $font_color;
+}
+
+div.wrapper {
+  position: relative;
+  min-height: 100%;
 }
 
 h1 {
@@ -62,4 +84,57 @@ div.box {
     font-size: 1.3rem;
     margin-bottom: 10px;
   }
+}
+
+/* Header */
+div.header {
+  height: $header_height;
+  padding: 0 30px;
+  .logo {
+    float: left;
+    line-height: $header_height;
+    font-size: 2rem;
+    font-family: $marck_script;
+  }
+  ul.global_nav {
+    float: right;
+    line-height: $header_height;
+  }
+  ul.global_nav li {
+    display: inline;
+    margin-right: 30px;
+    font-size: $font_size_s;
+  }
+  ul.global_nav li:last-child {
+    margin-right: 0px;
+  }
+  ul.global_nav li a { color: $font_color; }
+  ul.global_nav li a:hover { color: $font_color_right; }
+}
+
+/* Main Visual */
+div.main_visual {
+  background: #2cbfc7;
+  height: 300px;
+}
+
+/* Main_column */
+div.main_column {
+  min-height: 100%;
+  margin-top: 40px;
+  // これをとるとfooterが浮く
+  padding-bottom: 60px;
+}
+
+/* Footer */
+div.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: $font_size_xs;
+  color: $font_color_right;
+  border-top: $border_right_gray;
 }

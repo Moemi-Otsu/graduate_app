@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   # talk / comments
   resources :talks do
     collection do
+      get :top
+    end
+    collection do
       post :confirm
     end
     resources :comments

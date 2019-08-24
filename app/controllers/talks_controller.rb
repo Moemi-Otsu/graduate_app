@@ -3,6 +3,11 @@ class TalksController < ApplicationController
   # 未ログイン状態でも、閲覧は可能
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
+  def top
+    @talks = Talk.all
+    @categories = Category.all
+  end
+
   def index
     @talks = Talk.all
     @categories = Category.all

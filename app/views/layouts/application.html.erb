@@ -11,28 +11,7 @@
   </head>
 
   <body>
-    <div class="header container-fluid">
-      <h1>LOGO</h1>
-
-      <% if user_signed_in? %>
-        <ul>
-          <li><%= link_to t('view.talk_index_h1'), talks_path %></li>
-          <li><%= link_to t('view.talk_new'), new_talk_path %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-          <% current_user_profile = Profile.find_by(user_id: current_user.id) %>
-          <% unless current_user_profile.nil? %>
-            <li><%= link_to t('view.user_mypage'), profile_path(current_user.profile.id) %></li>
-          <% end %>
-        </ul>
-        <ul>
-          <li><%= link_to t('view.category_index_h1'), new_talk_path %></li>
-        </ul>
-      <% else %>
-        <ul>
-          <li><%= link_to t('view.user_new'), new_user_registration_path %></li>
-          <li><%= link_to t('view.user_login'), new_user_session_path %></li>
-        </ul>
-      <% end %>
+    <div class="wrapper">
 
       <% if notice %>
         <p class="alert alert-notice"><%= notice %></p>
@@ -41,9 +20,47 @@
         <p class="alert alert-error"><%= alert %></p>
       <% end %>
 
-    </div>
-    <div class="wrapper container">
-      <%= yield %>
-    </div>
+      <div class="header container-fluid clearfix">
+        <div class="logo">Talk With</div>
+
+        <% if user_signed_in? %>
+          <ul class="global_nav">
+            <li><%= link_to t('view.talk_index_h1'), talks_path %></li>
+            <li><%= link_to t('view.talk_new'), new_talk_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% current_user_profile = Profile.find_by(user_id: current_user.id) %>
+            <% unless current_user_profile.nil? %>
+              <li><%= link_to t('view.user_mypage'), profile_path(current_user.profile.id) %></li>
+            <% end %>
+          </ul>
+          <ul class="global_nav">
+            <li><%= link_to t('view.category_index_h1'), new_talk_path %></li>
+          </ul>
+        <% else %>
+          <ul class="global_nav">
+            <li><%= link_to t('view.user_new'), new_user_registration_path %></li>
+            <li><%= link_to t('view.user_login'), new_user_session_path %></li>
+          </ul>
+        <% end %>
+
+      </div>
+
+      <% if request.path == '/' or request.path == '/talks/top' %>
+        <div class="main_visual">
+          <h1>お悩み</h1>
+          <p>ああああああああああああああああああああ</p>
+        </div>
+      <% end %>
+    
+      <div class="main_column container">
+        <%= yield %>
+      </div>
+
+      <div class="footer">
+        <p>©2019 Talk With</p>
+      </div>
+
+    </div><!-- wrapper_end -->
+
   </body>
 </html>
