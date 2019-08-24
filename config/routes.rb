@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
    }
   # root
-  root to: "talks#index"
+  root to: "talks#top"
   # talk / comments
   resources :talks do
     collection do
