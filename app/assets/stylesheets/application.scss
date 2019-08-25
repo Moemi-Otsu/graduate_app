@@ -375,6 +375,39 @@ div#error_explanation {
   background: $a_pink_hover;
 }
 
+/* profile > profile_navs */
+div.profile_head {
+  margin-bottom: 30px;
+  img {
+    float: left;
+    border-radius: 50%;
+    margin-right: 30px;
+  }
+  h2 {
+    float: left;
+    vertical-align: middle;
+    margin-top: 40px;
+  }
+}
+
+ul.profile_navs {
+  display: flex;
+  // justify-content: space-between;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+  li {
+    border: 1px solid $font_color;
+    text-align: center;
+    margin-right: 10px;
+  li:last-child { margin-right: none; }
+    a {
+      display: block;
+      color: #363636;
+      padding: 8px 10px;
+    }
+  }
+}
+
 /* Footer */
 div.footer {
   position: absolute;
