@@ -105,7 +105,15 @@ div.box {
   margin: $bottom_30;
   h2 {
     font-size: 1.3rem;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  h2:before {
+    content: '';
+    display: inline-block;
+    width: 13px;/*線の長さ*/
+    height: 13px;/*線の太さ*/
+    transform: translateY(-10px);/*位置調整*/
+    background-color: #efed62;
   }
 }
 
@@ -171,8 +179,9 @@ div.main_column {
 
 /* Talk Box */
 div.talk_box {
-  background-color: #ccc;
-  margin-bottom: 15px;
+  position: relative;
+  background-color: #f5f5f5;
+  margin-bottom: 20px;
   padding: 15px 20px 25px 20px;
   div.talk_box_header{
     $talk_box_header_height: 35px;
@@ -205,7 +214,7 @@ div.talk_box {
       li { margin-left: 20px; }
       a { color: $a_pink; }
       a:hover { color: $a_pink_hover; }
-      span { font-size: 1.4rem; font-weight: bold; }
+      span { font-size: 1.5rem; font-weight: bold; }
     }
   }
   div.talk_box_main {
@@ -213,12 +222,46 @@ div.talk_box {
     p { padding-top: 15px; }
     p.talk_box_title {
       font-size: $font_size_m;
-      font-weight: bold;
+      line-height: 1.5rem;
       a { color: $font_color; }
       a:hover { color: $font_hover_color; }
     }
-    p.talk_box_content {}
+    p.talk_box_content {
+      line-height: 1.3rem;
+      color: $font_color_right;
+      font-size: $font_size_s
+    }
   }
+}
+
+div.talk_box:before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  bottom: 0px;/*線の上下位置*/
+  display: inline-block;
+  width: 98%;/*線の長さ*/
+  height: 1px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-10px);/*位置調整*/
+  background-color: #363636;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
+
+div.talk_box:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  bottom: 0px;/*線の上下位置*/
+  display: inline-block;
+  width: 1px;/*線の長さ*/
+  height: 98%;/*線の太さ*/
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-10px);/*位置調整*/
+  background-color: #363636;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
 }
 
 /* Footer */
