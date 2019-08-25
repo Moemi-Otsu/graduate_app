@@ -1,4 +1,5 @@
-<h1><%= @profile.user.name %> さんのプロフィール</h1>
+<% content_for(:title, t('view.profile_h1')) %>
+<h2><%= @profile.user.name %> さんのプロフィール</h2>
 
 <div>
   <%= image_tag @profile.image.url %>

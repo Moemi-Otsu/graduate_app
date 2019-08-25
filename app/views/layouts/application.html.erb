@@ -54,8 +54,14 @@
       <!-- Main Visual -->
       <% if check_page('talks', 'top') %>
         <div class="main_visual">
-          <h1>お悩み</h1>
-          <p>ああああああああああああああああああああ</p>
+          <h1>ここにキービジュアルが入ります。</h1>
+        </div>
+      <% end %>
+
+      <!-- h1 -->
+      <% unless check_page('talks', 'top') %>
+        <div class="h1_background">
+          <h1 class="container"><%= yield(:title) %></h1>
         </div>
       <% end %>
 
@@ -71,7 +77,9 @@
           </div>
         <% else %>
           <div class="main_column col-md-10 col-md-offset-1">
-            <%= yield %>
+            <div class="one_column">
+              <%= yield %>
+            </div>
           </div>
         <% end %>
       </div>

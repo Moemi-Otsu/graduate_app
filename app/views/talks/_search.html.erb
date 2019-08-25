@@ -1,10 +1,16 @@
 <div class="search_box">
   <%= search_form_for @talks do |f| %>
-    <%= f.label :'title_or_content', t('view.search_title_or_content') %>
+  <div>
+    <i class="material-icons">search</i><%= f.label :'title_or_content', t('view.search_title_or_content'), class: "search_label" %>
     <%= f.search_field :title_or_content_cont, placeholder: "検索ワード" %>
-    <%= f.label :'categories', t('view.search_category') %>
+  </div>
+  <div>
+    <i class="material-icons">attach_file</i><%= f.label :'categories', t('view.search_category'), class: "search_label" %>
     <%= f.collection_radio_buttons :categories_id_in, @categories, :id, :name %>
+  </div>
+  <div class="search_btns">
     <%= f.submit %>
-    <%= link_to 'リセット', talks_path %>
+    <%= link_to 'リセット', talks_path, class: 'btn_reset' %>
+  </div>
   <% end %>
 </div>

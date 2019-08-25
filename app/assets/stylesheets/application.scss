@@ -25,8 +25,9 @@ $marck_script: 'Marck Script', cursive;
 $bottom_30: 0 0 30px 0;
 $left_30: 0 0 0 30px;
 $font_size_s: 0.9rem;
+$font_size_ss: 0.8rem;
 $font_size_xs: 0.7rem;
-$font_size_m: 1.3rem;
+$font_size_m: 1.2rem;
 $font_color: #454545;
 $font_color_right: #666666;
 $font_link_color: #2da2a8;
@@ -57,6 +58,88 @@ a:hover { color: $font_hover_color; text-decoration: none; transition: all 0.2s 
   @extend .btn;//.btnのスタイルを継承
   background-color: lightblue;//スタイルの上書き
   font-size: 1.5em;//スタイルの追加
+}
+
+/* input */
+input, textarea {
+  border: 1px solid #d9d9d9;
+  padding: 5px;
+  font-size: $font_size_s;
+}
+
+label {
+  font-size: $font_size_s;
+}
+// input[type=radio]:checked
+
+/* Search */
+div.search_box {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 15px;
+  background: #f5f5f5;
+  div { margin-bottom: 10px; }
+  label { margin-right: 20px; margin-bottom: 6px; }
+  label.search_label {
+    // background: #f00;
+    width: 110px;
+  }
+  input[type=search] { width: 300px; }
+  i {
+    margin-right: 2px;
+    font-size: 1.2rem;
+    transform: translateY(4px);
+  }
+  input[name=commit] {
+    background: #fff;
+    padding: 6px 15px;
+    font-size: 0.8rem;
+    color: $font_color;
+    border: 1px solid $font_color;
+  }
+  a.btn_reset {
+    background: #fff;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    color: $font_color;
+    border: 1px solid $font_color;
+  }
+  div.search_btns {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    text-align: right;
+  }
+}
+
+div.search_box:before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  bottom: 0px;/*線の上下位置*/
+  display: inline-block;
+  width: 100%;/*線の長さ*/
+  height: 1px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-10px);/*位置調整*/
+  background-color: #363636;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
+}
+
+div.search_box:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  bottom: 0px;/*線の上下位置*/
+  display: inline-block;
+  width: 1px;/*線の長さ*/
+  height: 100%;/*線の太さ*/
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-10px);/*位置調整*/
+  background-color: #363636;/*線の色*/
+  border-radius: 2px;/*線の丸み*/
 }
 
 /* flash message */
@@ -96,9 +179,16 @@ div.wrapper {
   min-height: 100%;
 }
 
+/* h1 */
+div.h1_background {
+  background: $font_color;
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
 h1 {
-  margin: $bottom_30;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 h2 {
@@ -224,46 +314,65 @@ div.talk_box {
     p { padding-top: 15px; }
     p.talk_box_title {
       font-size: $font_size_m;
-      line-height: 1.5rem;
+      line-height: 1.7rem;
       a { color: $font_color; }
       a:hover { color: $font_hover_color; }
     }
     p.talk_box_content {
       line-height: 1.3rem;
       color: $font_color_right;
-      font-size: $font_size_s
+      font-size: $font_size_ss
     }
   }
 }
 
-div.talk_box:before {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: 0;
-  bottom: 0px;/*線の上下位置*/
-  display: inline-block;
-  width: 98%;/*線の長さ*/
-  height: 1px;/*線の太さ*/
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-10px);/*位置調整*/
-  background-color: #363636;/*線の色*/
-  border-radius: 2px;/*線の丸み*/
+/* main_column > one_column */
+div.one_column {
+  // background: #ccc;
+  margin-bottom: 30px;
+  div.form {
+    label { padding: 10px 0; }
+    dt {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    dd.text_field {
+      input {
+        width: 100%;
+        min-height: 100px;
+        padding: 5px;
+        border-radius: 5px;
+        vertical-align: top;
+      }
+    }
+    dd {
+      margin-bottom: 20px;
+      label { padding: 0; }
+    }
+    dd.select_field label { margin-right: 20px; } 
+    dd.btn_submit {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      input[name=commit] {
+        text-align: center;
+        border-radius: 4px;
+        padding: 10px 20px;
+      }
+    }
+  }
+  ul.back_links {
+    text-align: center;
+    margin-top: 30px;
+  }
 }
 
-div.talk_box:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -4px;
-  bottom: 0px;/*線の上下位置*/
-  display: inline-block;
-  width: 1px;/*線の長さ*/
-  height: 98%;/*線の太さ*/
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-10px);/*位置調整*/
-  background-color: #363636;/*線の色*/
-  border-radius: 2px;/*線の丸み*/
+/* error_explanation */
+div#error_explanation {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid $a_pink;
+  background: $a_pink_hover;
 }
 
 /* Footer */

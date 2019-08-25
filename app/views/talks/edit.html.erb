@@ -1,7 +1,5 @@
-<h1><%= t('view.talk_edit_h1') %></h1>
-
+<% content_for(:title, t('view.talk_edit_h1')) %>
 <%= render 'form' %>
-
 <ul class="back_links">
   <li><%= link_to t('view.btn_back_index'), talks_path, class: 'submit' %></li>
 </ul>

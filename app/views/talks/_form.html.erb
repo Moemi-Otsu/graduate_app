@@ -13,11 +13,11 @@
   <div class="form">
     <dl>
       <dt><%= f.label :'title', t('view.talk_title') %></dt>
-      <dd><%= f.text_field :title, placeholder: t('view.talk_title_placeholder') %></dd>
+      <dd class="text_field"><%= f.text_field :title, placeholder: t('view.talk_title_placeholder') %></dd>
       <dt><%= f.label :'content', t('view.talk_content') %></dt>
-      <dd><%= f.text_field :content, placeholder: t('view.talk_content_placeholder') %></dd>
+      <dd class="text_field"><%= f.text_field :content, placeholder: t('view.talk_content_placeholder') %></dd>
       <dt><%= f.label :'name', t('view.category_name') %></dt>
-      <dd>
+      <dd class="select_field">
         <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |i| %>
           <%= i.label do %>
             <%= i.check_box %>
@@ -26,11 +26,11 @@
         <% end %>
       </dd>
     <% if action_name == 'new'%>
-      <dd><%= f.submit t('view.btn_confirm') %></dd>
+      <dd class="btn_submit"><%= f.submit t('view.btn_confirm') %></dd>
     <% elsif action_name == 'edit' %>
-      <dd><%= f.submit t('view.btn_update') %></dd>
+      <dd class="btn_submit"><%= f.submit t('view.btn_update') %></dd>
     <% else %>
-      <dd><%= f.submit t('view.btn_confirm') %></dd>
+      <dd class="btn_submit"><%= f.submit t('view.btn_confirm') %></dd>
     <% end %>
     </dl>
   </div>
