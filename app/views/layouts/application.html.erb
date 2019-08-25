@@ -32,7 +32,7 @@
 
       <!-- Header -->
       <div class="header container-fluid clearfix">
-        <div class="logo">Talk With</div>
+        <div class="logo"><%= link_to 'Talk With', root_path %></div>
         <% if user_signed_in? %>
           <ul class="global_nav">
             <li><%= link_to t('view.talk_index_h1'), talks_path %></li>
@@ -70,7 +70,7 @@
             <p>ここにリストが入ります。</p>
           </div>
         <% else %>
-          <div class="main_column col-md-12">
+          <div class="main_column col-md-10 col-md-offset-1">
             <%= yield %>
           </div>
         <% end %>
