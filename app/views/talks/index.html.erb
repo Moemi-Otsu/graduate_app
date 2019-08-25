@@ -1,4 +1,15 @@
 <div class="box">
   <h1><%= t('view.talk_index_h1') %></h1>
+  <%= render 'search' %>
   <%= render 'talk_box' %>
+<!--
+  <div class="box">
+    <h2><%= t('view.talk_index_h2_category') %></h2>
+    <% @categories.each do |i| %>
+      <ul>
+        <li><%= link_to i.name, talks_path %></li>
+      </ul>
+    <% end %>
+  </div>
+-->
 </div>
