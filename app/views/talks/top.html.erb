@@ -9,35 +9,5 @@
 
 <div class="box">
   <h2><%= t('view.talk_index_h2_new') %></h2>
-<% @talks.each do |talk| %>
-  <div class="talk_box clearfix">
-    <div class="talk_box_header">
-      <ul>
-        <li>
-          <%= link_to profile_path(talk.user.profile.id), class: 'user_link' do %>
-            <%= image_tag talk.user.profile.image.url %>
-          <% end %>
-        </li>
-        <li><%= talk.user.name %> さん</li>
-      </ul>
-      <ul class="talk_box_right">
-        <li><!--いいね-->
-          <div id="likes_buttons_<%= talk.id %>">
-          <%= render partial: 'likes/like', locals: { talk: talk, likes: @likes} %>
-          </div>
-        </li>
-        <li><%= talk.created_at.strftime("%Y.%m.%d") %></li>
-        <li><span><%= talk.comments.size %> </span>Comment</p></li>
-      </ul>
-    </div><!--talk_box_header-->
-    <div class="talk_box_main">
-      <p class="talk_box_title">
-      <%= link_to talk_path(talk.id) do %>
-        <%= talk.title %>
-      <% end %>
-      </p>
-      <p class="talk_box_content"><%= talk.content %></p>
-    </div><!--talk_box_main-->
-  </div>
-<% end %>
+  <%= render 'talk_box' %>
 </div>
