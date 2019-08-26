@@ -20,6 +20,15 @@
         <p class="flash_m container-fluid alert"><%= alert %></p>
       <% end %>
 
+<!-- cancancan用に記述 -->
+<% if can? :update, current_user %>
+  <p>You can update</p>
+<% end %>
+<% if can? :read, current_user %>
+  <p>You can read member</p>
+<% end %>
+<!-- cancancan用に記述 -->
+
       <!-- Admin Nav -->
       <% if user_signed_in? %><!-- user role ができたら処理変更 -->
         <div class="admin_nav container-fluid">
