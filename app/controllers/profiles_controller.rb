@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy, :talks, :comments]
+  # before_action :set_profile_kaminari, only: [:talks, :comments]
+  PER = 4
 
   def new
     @profile = Profile.new
@@ -32,9 +34,11 @@ class ProfilesController < ApplicationController
   end
 
   def talks
+    @profile_user_talks = @profile.user.talks.page(params[:page]).per(PER)
   end
 
   def comments
+    @profile_user_comments = @profile.user.comments.page(params[:page]).per(PER)
   end
 
   private
@@ -43,8 +47,16 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:age, :image, :image_cache, :working_company, :previous_company, :length_worked, :occupation, :industry, :area, :address)
   end
 
+  # def set_profile_kaminari
+  #   @profile = Profile.find(params[:id]).page(params[:page]).per(2)
+  # end
+
   def set_profile
     @profile = Profile.find(params[:id])
+  end
+
+  def kaminari_page_number
+    kaminari_page = page(params[:page]).per(1)
   end
 
 end
