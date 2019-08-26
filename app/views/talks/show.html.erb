@@ -5,15 +5,6 @@
   <% end %>
   
   <!-- お気に入り begin -->
-  <% if current_user.present? %> <!-- リファクタ対象 -->
-    <% unless @talk.user_id == current_user.id %>
-      <% if @like.present? %>
-        <%= link_to 'お気に入り解除する', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>
-      <% else %>
-        <%= link_to 'お気に入りする', likes_path(talk_id: @talk.id), method: :post, class: 'btn btn-primary' %>
-      <% end %>
-    <% end %>
-  <% end %>
   <!-- お気に入り end -->
 
   <!-- メニュー begin -->
