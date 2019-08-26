@@ -14,7 +14,7 @@ class TalksController < ApplicationController
     # ransak-検索
     @talks = Talk.ransack(params[:q])
     @categories = Category.all
-    @search_talks = @talks.result.includes(:categories)
+    @search_talks = @talks.result.includes(:categories).page(params[:page]).per(2)
   end
 
   def new
