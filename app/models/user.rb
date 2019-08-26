@@ -8,4 +8,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, uniqueness: true, presence: true, length: {maximum: 20}
+  enum role: { admin: 1, member: 2, company: 3 }
 end
