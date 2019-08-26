@@ -212,6 +212,7 @@ ja:
     user_login: ログイン
     user_sign_in: サインイン
     user_mypage: マイページ
+    user_index: ユーザ一覧
     talk_new: 相談する
     btn_back_index: 一覧へもどる
     btn_confirm: 投稿内容を確認する
