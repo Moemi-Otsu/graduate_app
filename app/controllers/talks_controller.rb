@@ -2,19 +2,20 @@ class TalksController < ApplicationController
   before_action :set_talk, only: [:show, :edit, :update, :destroy]
   # 未ログイン状態でも、閲覧は可能
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  PER = 10
 
   def top
     # ransak-検索
     @talks = Talk.ransack(params[:q])
     @categories = Category.all
-    @search_talks = @talks.result.includes(:categories)
+    @search_talks = @talks.result.includes(:categories).order(created_at: "desc").limit(3)
   end
 
   def index
     # ransak-検索
     @talks = Talk.ransack(params[:q])
     @categories = Category.all
-    @search_talks = @talks.result.includes(:categories)
+    @search_talks = @talks.result.includes(:categories).order(created_at: "desc").page(params[:page]).per(PER)
   end
 
   def new
@@ -42,7 +43,7 @@ class TalksController < ApplicationController
   end
 
   def show
-    @comments = @talk.comments
+    @comments = @talk.comments.page(params[:page]).per(PER)
     @like = current_user.likes.find_by(talk_id: @talk.id) if current_user.present?
   end
 

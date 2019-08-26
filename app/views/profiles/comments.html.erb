@@ -3,7 +3,7 @@
 <%= render 'navs' %>
 
 <div class="comment_talk_box">
-<% @profile.user.comments.each do |c| %>
+<% @profile_user_comments.each do |c| %>
   <div class="comment_talk">
     <%= link_to talk_path(c.talk.id) do %>
       <p><%= c.content %></p>
@@ -11,4 +11,5 @@
     <p><%= c.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
   </div>
 <% end %>
+<%= paginate @profile_user_comments %>
 </div>
