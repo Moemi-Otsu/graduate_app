@@ -24,6 +24,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 # User管理
 gem 'devise'
+gem 'cancancan'
 # 検索
 gem 'ransack'
 gem 'kaminari'
