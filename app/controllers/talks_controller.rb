@@ -3,12 +3,18 @@ class TalksController < ApplicationController
   # 未ログイン状態でも、閲覧は可能
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
+  def top
+    # ransak-検索
+    @talks = Talk.ransack(params[:q])
+    @categories = Category.all
+    @search_talks = @talks.result.includes(:categories)
+  end
+
   def index
     # ransak-検索
     @talks = Talk.ransack(params[:q])
     @categories = Category.all
     @search_talks = @talks.result.includes(:categories)
-    # @search_talks = @talks.result.includes(:categories) if params[:q]
   end
 
   def new

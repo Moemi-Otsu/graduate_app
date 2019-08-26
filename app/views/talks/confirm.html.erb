@@ -1,27 +1,31 @@
-<h1><%= t('view.btn_confirm') %></h1>
+<% content_for(:title, t('view.btn_confirm')) %>
 
-<%= form_with(model: @talk, url: talks_path, local: true) do |f| %>
-  <dl>
+<div class="form">
+  <%= form_with(model: @talk, url: talks_path, local: true) do |f| %>
+    <dl>
+      <%= f.hidden_field :title %>
+      <%= f.hidden_field :content %>
+      <% @talk.categories.each do |category| %>
+        <%= f.hidden_field :category_ids, multiple: true, value: category.id %>
+      <% end %>
+      <dt>タイトル:</dt>
+      <dd><%= @talk.title %></dd>
+      <dt>本文:</dt>
+      <dd><%= @talk.content %></dd>
+      <dt>カテゴリ:</dt>
+      <dd><% @talk.categories.each do |i| %>
+        <%= i.name %>
+      <% end %></dd>
+      <dd class="btn_submit"><%= f.submit %></dd>
+    </dl>
+  <% end %>
+
+  <ul class="back_links">
+  <%= form_with(model: @talk, url: new_talk_path, local: true, method: 'get') do |f| %>
     <%= f.hidden_field :title %>
     <%= f.hidden_field :content %>
-    <% @talk.categories.each do |category| %>
-      <%= f.hidden_field :category_ids, multiple: true, value: category.id %>
-    <% end %>
-    <dt>タイトル:</dt>
-    <dd><%= @talk.title %></dd>
-    <dt>本文:</dt>
-    <dd><%= @talk.content %></dd>
-    <dt>カテゴリ:</dt>
-    <dd><% @talk.categories.each do |i| %>
-      <%= i.name %>
-    <% end %></dd>
-    <dd><%= f.submit %></dd>
-  </dl>
-<% end %>
-
-<%= form_with(model: @talk, url: new_talk_path, local: true, method: 'get') do |f| %>
-  <%= f.hidden_field :title %>
-  <%= f.hidden_field :content %>
-  <%= f.hidden_field :category, multiple: true %>
-  <%= f.submit t('view.btn_back'), name: 'back' %>
-<% end %>
+    <%= f.hidden_field :category, multiple: true %>
+    <%= f.submit t('view.btn_back'), name: 'back' %>
+  <% end %>
+  </ul>
+</div>

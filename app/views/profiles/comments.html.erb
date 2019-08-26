@@ -1,5 +1,5 @@
-<h1><%= @profile.user.name %> さんの<%= t('view.profile_comments') %></h1>
-
+<% content_for(:title, t('view.profile_comments')) %>
+<%= render 'profile_head' %>
 <%= render 'navs' %>
 
 <div class="comment_talk_box">

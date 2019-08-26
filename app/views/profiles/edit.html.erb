@@ -1,5 +1,7 @@
+<% content_for(:title, t('view.btn_update')) %>
+<%= render 'profile_head' %>
+<%= render 'navs' %>
 <%= form_with(model: @profile, local: true) do |f| %>
-
   <% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= @profile.errors.count %>件のエラーがあります。</h2>
