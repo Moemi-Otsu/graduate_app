@@ -59,7 +59,7 @@
       <% end %>
 
       <!-- h1 -->
-      <% unless check_page('talks', 'top') %>
+      <% unless check_page('talks', 'top') or check_page('talks', 'show') %>
         <div class="h1_background">
           <h1 class="container"><%= yield(:title) %></h1>
         </div>

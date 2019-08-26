@@ -1,4 +1,3 @@
-<% content_for(:title, @talk.title) %>
 <div class="talk_box_show">
 <%= notice %>
   <% if @talk.complete.present? %>
@@ -35,7 +34,7 @@
   <!-- メニュー end -->
 
   <div class="talk_box_header">
-    <p class="talk_title"><%= @talk.title %></p>
+    <h1 class="talk_title"><%= @talk.title %></h1>
     <ul>
       <li>
         <%= link_to profile_path(@talk.user.profile.id), class: 'user_link' do %>

@@ -1,4 +1,4 @@
-<h1><%= t('view.comment_h1') %></h1>
+<% content_for(:title, t('view.comment_h1')) %>
 
 <%= form_with(model: @comment, local: true, url: talk_comments_path(@talk.id)) do |f| %>
   <% if @comment.errors.any? %>
@@ -12,9 +12,14 @@
     </div>
   <% end %>
 
-  <div class="comment_title">
-    <%= f.label :content %>
-    <%= f.text_field :content %>
+  <div class="form">
+    <dl>
+      <dt><%= f.label :content %></dt>
+      <dd><%= f.text_field :content %></dd>
+    </dl>
   </div>
   <%= f.submit %>
 <% end %>
+<ul class="back_links">
+  <li><%= link_to t('view.btn_back'), talk_path(@talk.id), class: 'submit' %></li>
+</ul>
