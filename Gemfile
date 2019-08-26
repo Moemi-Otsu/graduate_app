@@ -26,6 +26,7 @@ gem 'mini_magick'
 gem 'devise'
 # 検索
 gem 'ransack'
+gem 'kaminari'
 
 group :development, :test do
   # バグfix系ツール
