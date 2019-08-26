@@ -8,7 +8,8 @@ RSpec.describe "User", type: :system do
 
   describe 'newアクション' do
     let(:user) { User.new(name: 'hoge', age: age) }
-
+    let(:user) { create(:user) }
+    
     context 'userの新規登録テスト' do
       it '通常の新規user登録' do
         visit new_user_registration_path

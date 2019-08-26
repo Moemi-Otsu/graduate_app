@@ -47,18 +47,20 @@ a:hover { color: $font_hover_color; text-decoration: none; transition: all 0.2s 
   clear: both;
 }
 
-/* @expand */
-.btn {
-  padding: 10px 20px;
-  border: 2px solid blue;
-  border-radius: 3px;
-  background-color: lightgray;
-}
-.btn-submit {
-  @extend .btn;//.btnのスタイルを継承
-  background-color: lightblue;//スタイルの上書き
-  font-size: 1.5em;//スタイルの追加
-}
+// /* @expand */
+// .btn {
+//   padding: 2px;
+//   line-height: 0;
+//   border-radius: 3px;
+//   background-color: lightgray;
+// }
+// .btn-submit {
+//   @extend .btn;//.btnのスタイルを継承
+//   background-color: lightblue;//スタイルの上書き
+//   font-size: 1.5em;//スタイルの追加
+// }
+
+.font_ss { font-size: $font_size_ss; }
 
 /* input */
 input, textarea {
@@ -195,14 +197,11 @@ h2 {
   font-size: 1.3rem;
   margin-bottom: 20px;
 }
-// h2:before {
-//   content: '';
-//   display: inline-block;
-//   width: 13px;/*線の長さ*/
-//   height: 13px;/*線の太さ*/
-//   transform: translateY(-10px);/*位置調整*/
-//   background-color: #efed62;
-// }
+
+h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
 
 div.box {
   margin: $bottom_30;
@@ -364,6 +363,144 @@ div.one_column {
   ul.back_links {
     text-align: center;
     margin-top: 30px;
+  }
+}
+
+/* main_column > comments_box（profile-showアクション） */
+ul.talk_utility {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid $font_link_color;
+  li {
+    display: inline;
+    margin-right: 20px;
+  }
+}
+
+/* main_column > talk_box_header（talk-showアクション） */
+div.talk_box_header {
+  p.talk_title {
+    font-size: 1.7rem;
+    margin-bottom: 25px;
+  }
+}
+
+/*-------------------------------------------*/
+div.talk_box_header{
+  $talk_box_header_height: 35px;
+  ul {
+    float: left;
+    height: $talk_box_header_height;
+    a.user_link { float: left;
+      img {
+        width: $talk_box_header_height;
+        height: $talk_box_header_height;
+        object-fit: cover; 
+        border-radius: 50%;
+      }
+    }
+    li {
+      float: left;
+      margin-left: 10px;
+      line-height: $talk_box_header_height;
+      div.vertical_like {
+        i { vertical-align: sub; font-size: $font_size_m; }
+      }
+    }
+    li:first-child { margin-left: 0; }
+  }
+  ul.talk_box_right {
+    float: right; 
+    font-size: 1.2rem;
+    font-family: $marck_script;
+    color: #666666;
+    li { margin-left: 20px; }
+    a { color: $a_pink; }
+    a:hover { color: $a_pink_hover; }
+    span { font-size: 1.5rem; font-weight: bold; }
+  }
+}
+/*-------------------------------------------*/
+
+div.talk_box_category {
+  margin-top: 80px;
+  margin-bottom: 20px;
+  ul {
+    li {
+      float: left;
+      padding: 3px 10px;
+      margin-right: 10px;
+      font-size: $font_size_ss;
+      border: 1px solid #666666;
+      border-radius: 3px;
+      color: $font_color_right;
+    }
+  }
+}
+
+div.talk_box_show_content {
+  margin-bottom: 40px;
+}
+
+/* main_column > comments_box（profile-showアクション） */
+div.comments_box {
+  h3 {
+    font-family: $marck_script;
+    font-size: $font_size_m;
+  }
+  a.btn_comment {
+    display: block;
+    margin: 0 auto 15px;
+    padding: 10px 15px;
+    width: 100%;
+    background: $font_link_color;
+    border-radius: 3px;
+    color: #fff;
+    font-size: $font_size_s;
+    text-align: center;
+  }
+  a.btn_comment:hover { background: $font_hover_color; }
+  div.user_comment {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    div.talk_box_main ul {
+      margin-bottom: 5px;
+      li {
+        display: inline-block;
+        margin: 0 10px 7px 0;
+        line-height: 1rem;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          vertical-align: middle;
+        }
+      }
+      li span {
+        font-family: $marck_script;
+        font-size: $font_size_m;
+      }
+    }
+    div.comment_content {
+      margin-bottom: 20px;
+      p {
+        margin-bottom: 15px;
+        line-height: 1.4rem;
+        // position: relative;
+        // // margin-bottom: 20px;
+      }
+      button.btn {
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        padding: 2px;
+        line-height: 0;
+        border-radius: 3px;
+        background-color: lightgray;
+      }
+    }
   }
 }
 

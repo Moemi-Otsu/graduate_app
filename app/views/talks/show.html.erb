@@ -21,6 +21,7 @@
   <% if current_user.present? %> <!-- リファクタ対象 -->
     <% if current_user.id == @talk.user_id %>
       <ul class="talk_utility">
+        <li>投稿者メニュー</li>
         <li><%= link_to t('view.talk_btn_edit'), edit_talk_path(@talk.id) %></li>
         <% if @talk.complete.present? %>
           <li><%= link_to t('view.talk_complete_false'), talk_path(@talk, params: { talk: { complete: false} }), method: :put %></li>
@@ -34,54 +35,67 @@
   <!-- メニュー end -->
 
   <div class="talk_box_header">
-    <p>
-      <%= link_to profile_path(@talk.user.profile.id) do %>
-        <%= image_tag @talk.user.profile.image.url %>
-        <%= @talk.user.name %> さん
-      <% end %>
-    </p>
+    <p class="talk_title"><%= @talk.title %></p>
     <ul>
-      <li><span><%= @talk.comments.size %></span>コメント</p></li>
-      <li><%= @talk.created_at.strftime("%Y年%m月%d日 %H時%M分") %></li>
+      <li>
+        <%= link_to profile_path(@talk.user.profile.id), class: 'user_link' do %>
+          <%= image_tag @talk.user.profile.image.url %>
+        <% end %>
+      </li>
+      <li><%= @talk.user.name %> さん</li>
+    </ul>
+    <ul class="talk_box_right">
+      <li><span><%= @talk.comments.size %></span> Comment</p></li>
+      <li><%= @talk.created_at.strftime("%Y.%m.%d %H:%M") %></li>
     </ul>
   </div>
-  <p><%= @talk.content %></p>
-  <% @talk.categories.each do |i| %>
-  <ul>
-    <li><%= i.name %></li>
-  </ul>
-  <% end %>
+  <div class="talk_box_category clearfix">
+    <% @talk.categories.each do |i| %>
+    <ul>
+      <li><%= i.name %></li>
+    </ul>
+    <% end %>
+  </div>
+  <div class="talk_box_show_content clearfix">
+    <p><%= @talk.content %></p>
+  </div>
 </div>
 
-<div class="comments_box">
-  <h2>コメント一覧</h2>
+<div class="comments_box clearfix">
+  <h3>Comments</h3>
+  <% unless @talk.complete.present? %>
+    <%= link_to 'コメントする', new_talk_comment_path(@talk.id), class: 'btn_comment' %>
+  <% end %>
   <% @comments.each do |c| %>
     <div class="user_comment">
-      <div>
-        <%= link_to profile_path(c.user.profile.id) do %>
-          <%= image_tag c.user.profile.image.url %>
-          <%= c.user.name %> さん
-        <% end %>
-        <% if c.user.profile.working_company.present? %>
-          <p>現在のお勤め先：<%= c.user.profile.working_company %></p>
-        <% end %>
-        <p><span><%= c.created_at.strftime("%Y年%m月%d日 %H時%M分") %></span></p>
+      <div class="talk_box_main">
+        <ul class="clearfix">
+          <li>
+            <%= link_to profile_path(c.user.profile.id), class: 'user_link' do %>
+              <%= image_tag c.user.profile.image.url %>
+            <% end %>
+          </li>
+          <li><%= c.user.name %> さん</li>
+          <li><span><%= c.created_at.strftime("%Y.%m.%d %H:%M") %></span></li>
+          <% if c.user.profile.working_company.present? %>
+            <li class="font_ss">現在のお勤め先：<%= c.user.profile.working_company %></li>
+          <% end %>
+        </ul>
       </div>
-      <p><%= c.content %></p>
-      <% if current_user.id == c.user_id %>
-        <div class="dropdown">
-          <button type="button" id="dropdown1" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            ▼
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdown1">
-            <li><%= link_to '編集', edit_talk_comment_path(@talk.id, c.id) %></li>
-            <li><%= link_to '削除', talk_comment_path(@talk.id, c.id), method: :delete, data:{ confirm: "本当に削除しますか？"} %></li>
-          </ul>
-        </div>
-      <% end %>
+      <div class="comment_content">
+        <p><%= c.content %></p>
+        <% if current_user.id == c.user_id %>
+          <div class="dropdown">
+            <button type="button" id="dropdown1" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">arrow_drop_down</i>編集
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdown1">
+              <li><%= link_to '編集', edit_talk_comment_path(@talk.id, c.id) %></li>
+              <li><%= link_to '削除', talk_comment_path(@talk.id, c.id), method: :delete, data:{ confirm: "本当に削除しますか？"} %></li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-  <% unless @talk.complete.present? %>
-    <%= link_to 'コメントする', new_talk_comment_path(@talk.id) %>
   <% end %>
 </div>
