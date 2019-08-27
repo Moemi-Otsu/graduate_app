@@ -2,9 +2,6 @@
   <% if @talk.complete.present? %>
     <p>この相談は解決済みとなり、コメントを締め切りました。</p>
   <% end %>
-  
-  <!-- お気に入り begin -->
-  <!-- お気に入り end -->
 
   <!-- メニュー begin -->
   <% if current_user.present? %> <!-- リファクタ対象 -->
