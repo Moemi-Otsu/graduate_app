@@ -145,6 +145,12 @@ div.search_box:after {
 }
 
 /* flash message */
+#notice {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 .flash_m {
   background-color: #f00;
   padding: 13px 30px;
@@ -378,18 +384,15 @@ ul.talk_utility {
 }
 
 /* main_column > talk_box_header（talk-showアクション） */
-div.talk_box_header {
+div.talk_box_header{
+  $talk_box_header_height: 35px;
   h1.talk_title {
     font-size: 1.7rem;
+    line-height: 2.2rem;
     margin-bottom: 25px;
     font-weight: bold;
     color: $font_color;
   }
-}
-
-/*-------------------------------------------*/
-div.talk_box_header{
-  $talk_box_header_height: 35px;
   ul {
     float: left;
     height: $talk_box_header_height;
@@ -442,6 +445,7 @@ div.talk_box_category {
 
 div.talk_box_show_content {
   margin-bottom: 40px;
+  p { line-height: 1.4rem; }
 }
 
 /* main_column > comments_box（profile-showアクション） */

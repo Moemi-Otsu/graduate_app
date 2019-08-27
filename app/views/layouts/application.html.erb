@@ -11,26 +11,32 @@
   </head>
   <body>
     <div class="wrapper">
-
+      <!-- Flash Messages -->
+      <script>
+        $( document ).ready(function() {
+          // メッセージを３秒後にフェードアウトする
+          $('#notice').fadeOut(3000);
+      });
+      </script>
       <!-- Flash Messages -->
       <% if notice %>
-        <p class="flash_m container-fluid notice"><%= notice %></p>
+        <p id="notice" class="flash_m container-fluid notice"><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class="flash_m container-fluid alert"><%= alert %></p>
+        <p id="notice" class="flash_m container-fluid alert"><%= alert %></p>
       <% end %>
 
 <!-- cancancan用に記述 -->
-<% if can? :update, current_user %>
+<!--<% if can? :update, current_user %>
   <p>You can update</p>
 <% end %>
 <% if can? :read, current_user %>
   <p>You can read member</p>
-<% end %>
+<% end %>-->
 <!-- cancancan用に記述 -->
 
       <!-- Admin Nav -->
-      <% if user_signed_in? %><!-- user role ができたら処理変更 -->
+      <% if can? :update, current_user %>
         <div class="admin_nav container-fluid">
           <p>管理者メニュー：</p>
           <ul>

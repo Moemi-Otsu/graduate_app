@@ -1,3 +1,23 @@
 <% content_for(:title, t('view.user_index')) %>
 <div class="box">
+  <table>
+    <tr>
+      <td>id</td>
+      <td>ユーザ名</td>
+      <td>メールアドレス</td>
+      <td>パスワード</td>
+      <td>ユーザー権限</td>
+      <td>権限変更</td>
+    <tr>
+    <% @users.each do |users| %>
+      <tr>
+        <td><%= users.id %></td>
+        <td><%= users.name %></td>
+        <td><%= users.email %></td>
+        <td><%= users.password %></td>
+        <td><%= users.role_i18n %></td>
+        <td><%= link_to '管理者に変更', user_path(users.id), method: :put, params: { role: 'admin' } %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>

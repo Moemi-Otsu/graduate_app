@@ -310,3 +310,8 @@ ja:
         five_years: 5年以上
         seven_years: 7年以上
         ten_years: 10年以上
+    user:
+      role:
+        admin: 管理者ユーザー
+        member: 一般ユーザー
+        company: 企業ユーザー
