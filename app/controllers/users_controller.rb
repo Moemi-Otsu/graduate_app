@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    # binding.irb
     @user = User.find(params[:id])
     if current_user.role == 'admin'
       if @user.update(user_params)
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :encrypted_password, :role)
+    params.require(:user).permit(:name, :email, :encrypted_password, :role)
   end
 
 end
