@@ -2,9 +2,11 @@
 
 <p><%= link_to t('view.category_new'), new_category_path %></p>
 
-<table>
+<table class="table">
   <tr>
     <td><%= t('view.category_name') %></td>
+    <td><%= t('view.btn_update') %></td>
+    <td><%= t('view.btn_delete') %></td>
   </tr>
 
 <% @categories.each do |category| %>
