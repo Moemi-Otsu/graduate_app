@@ -49,8 +49,12 @@
 
 <div class="comments_box clearfix">
   <h3>Comments</h3>
-  <% unless @talk.complete.present? %>
-    <%= link_to 'コメントする', new_talk_comment_path(@talk.id), class: 'btn_comment' %>
+  <% if current_user.nil? %>
+    <p>ログインするとコメントすることができます。</p>
+  <% else %>
+    <% unless @talk.complete.present? %>
+      <%= link_to 'コメントする', new_talk_comment_path(@talk.id), class: 'btn_comment' %>
+    <% end %>
   <% end %>
   <% @comments.each do |c| %>
     <div class="user_comment">

@@ -3,8 +3,12 @@
     <div class="talk_box_header">
       <ul>
         <li>
-          <%= link_to profile_path(talk.user.profile.id), class: 'user_link' do %>
+          <% if current_user.nil? %>
             <%= image_tag talk.user.profile.image.url %>
+          <% else %>
+            <%= link_to profile_path(talk.user.profile.id), class: 'user_link' do %>
+              <%= image_tag talk.user.profile.image.url %>
+            <% end %>
           <% end %>
         </li>
         <li><%= talk.user.name %> さん</li>

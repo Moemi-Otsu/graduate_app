@@ -285,13 +285,12 @@ div.talk_box {
     ul {
       float: left;
       height: $talk_box_header_height;
-      a.user_link { float: left;
-        img {
-          width: $talk_box_header_height;
-          height: $talk_box_header_height;
-          object-fit: cover; 
-          border-radius: 50%;
-        }
+      a.user_link { float: left; }
+      img {
+        width: $talk_box_header_height;
+        height: $talk_box_header_height;
+        object-fit: cover; 
+        border-radius: 50%;
       }
       li {
         float: left;
