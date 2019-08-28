@@ -1,0 +1,31 @@
+<% content_for(:title, t('view.btn_update')) %>
+<%= form_with(model: @user, local: true) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @user.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form">
+    <dl>
+      <dt><%= f.label :'name', t('view.user_name') %></dt>
+      <dd><%= f.text_field :name, placeholder: t('view.user_name') %></dd>
+      <dt><%= f.label :'email', t('view.user_email') %></dt>
+      <dd><%= f.text_field :email, placeholder: t('view.user_email') %></dd>
+      <dt><%= f.label :'encrypted_password', t('view.user_password') %></dt>
+      <dd><%= f.text_field :encrypted_password, placeholder: t('view.user_email') %></dd>
+      <dt><%= f.label :'role', t('view.user_role') %></dt>
+      <dd><%= f.select :role, User.roles_i18n.keys.map {|k| [User.roles_i18n[k], k]} %></dd>
+      <dd><%= f.submit %></dd>
+    </dl>
+  </div>
+<% end %>
+
+<ul class="back_links">
+  <li><%= link_to t('view.btn_back_index'), users_path, class: 'submit' %></li>
+</ul>

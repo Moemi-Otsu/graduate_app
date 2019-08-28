@@ -213,6 +213,10 @@ ja:
     user_sign_in: サインイン
     user_mypage: マイページ
     user_index: ユーザ一覧
+    user_name: 名前
+    user_email: メールアドレス
+    user_password: パスワード
+    user_role: 権限
     talk_new: 相談する
     btn_back_index: 一覧へもどる
     btn_confirm: 投稿内容を確認する

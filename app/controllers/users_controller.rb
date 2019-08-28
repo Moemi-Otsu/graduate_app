@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
+
   def index
     if current_user.role == 'admin'
-      @users = User.all
+      @users = User.all.order(id: "asc")
     else
       redirect_to root_path, notice: "管理者ユーザー以外アクセスできません。"
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def update
