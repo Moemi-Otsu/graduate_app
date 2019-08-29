@@ -28,8 +28,6 @@ gem 'cancancan'
 # 検索
 gem 'ransack'
 gem 'kaminari'
-# seedデータ
-gem 'faker'
 
 group :development, :test do
   # バグfix系ツール
@@ -47,6 +45,8 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # seedデータ
+  gem 'faker'
 end
 
 group :test do
