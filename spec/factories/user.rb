@@ -7,6 +7,10 @@ FactoryBot.define do
     password_confirmation { 'zzzzzz' }
     name { 'zzz' }
     role { 'admin' }
+
+    after(:create) do |user|
+      create_list(:profile, 1, user: user)
+    end
   end
 
   factory :second_user, class: User do
@@ -15,10 +19,6 @@ FactoryBot.define do
     password_confirmation { password }
     name { Faker::Name.name }
     role { 'member' }
-  end
-
-  factory :third_user, class: User do
-    # ここに処理が入ります。
   end
 
 end
