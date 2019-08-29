@@ -11,6 +11,10 @@ FactoryBot.define do
     after(:create) do |user|
       create_list(:profile, 1, user: user)
     end
+
+    after(:create) do |user|
+      create_list(:talk, 1, user: user)
+    end
   end
 
   factory :second_user, class: User do

@@ -1,15 +1,15 @@
+require 'faker'
 FactoryBot.define do
 
   factory :talk do
-    title { 'トークタイトルfactoryのA' }
-    content { 'トークコンテンツfactoryのA' }
+    title { Faker::Lorem.word }
+    content { Faker::Lorem.sentence }
     complete { false }
+    # user_id {}
+    # likes_count {}
   end
 
   factory :second_talk, class: Talk do
-    title { 'トークタイトルfactoryのB' }
-    content { 'トークコンテンツfactoryのB' }
-    complete { false }
   end
 
 end
