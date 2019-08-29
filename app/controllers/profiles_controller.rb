@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy, :talks, :comments]
   # before_action :set_profile_kaminari, only: [:talks, :comments]
+  before_action :authenticate_user!
   PER = 4
 
   def new
