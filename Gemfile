@@ -28,6 +28,8 @@ gem 'cancancan'
 # 検索
 gem 'ransack'
 gem 'kaminari'
+# seedデータ
+gem 'faker'
 
 group :development, :test do
   # バグfix系ツール
@@ -38,8 +40,6 @@ group :development, :test do
   # RSpec rails consoleでも動作確認できるように、gemfileでは :testだけでなく :developmentにも定義
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  # seedデータ
-  gem 'faker'
 end
 
 group :development do
