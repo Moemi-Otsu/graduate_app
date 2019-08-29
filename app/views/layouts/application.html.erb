@@ -53,7 +53,7 @@
           <ul class="global_nav">
             <li><%= link_to t('view.talk_index_h1'), talks_path %></li>
             <li><%= link_to t('view.talk_new'), new_talk_path %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'user_logout' %></li>
             <% current_user_profile = Profile.find_by(user_id: current_user.id) %>
             <% unless current_user_profile.nil? %>
               <li><%= link_to t('view.user_mypage'), profile_path(current_user.profile.id) %></li>

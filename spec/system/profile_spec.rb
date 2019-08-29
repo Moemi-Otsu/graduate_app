@@ -5,35 +5,9 @@ RSpec.describe User, type: :system do
   let(:second_user) { create(:second_user) }
 
   describe 'Userの新規登録' do
-    it 'User新規作成' do
-      visit new_user_registration_path
-      fill_in 'user[name]', with: 'hogehoge'
-      fill_in 'user[email]', with: 'hogehoge@mail.com'
-      fill_in 'user[password]', with: 'hogehoge'
-      fill_in 'user[password_confirmation]', with: 'hogehoge'
-      click_on 'commit'
-      expect(page).to have_content 'アカウント登録が完了しました。'
-    end
   end
 
-  describe 'Sessionログイン／ログアウトの確認' do
-    it 'ログインできること' do
-      user
-      visit new_user_session_path
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
-      click_on 'commit'
-      expect(page).to have_content 'ログインしました。'
-    end
-    it 'ログアウトできること' do
-      user
-      visit new_user_session_path
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
-      click_on 'commit'
-      click_on 'ログアウト'
-      expect(page).to have_content 'ログアウトしました。'
-    end
+  describe 'ログイン／ログアウト' do
   end
 
   describe 'User一覧（role:adminのみの権限）' do
