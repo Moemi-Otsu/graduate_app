@@ -10,8 +10,8 @@ FactoryBot.define do
 
   factory :second_user, class: User do
     email { Faker::Internet.email }
-    password { 'password' }
-    password_confirmation { 'password' }
+    password { Faker::Internet.password }
+    password_confirmation { password }
     name { Faker::Name.name }
     role { 'member' }
   end
