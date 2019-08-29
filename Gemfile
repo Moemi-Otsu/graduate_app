@@ -38,6 +38,8 @@ group :development, :test do
   # RSpec rails consoleでも動作確認できるように、gemfileでは :testだけでなく :developmentにも定義
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  # seedデータ
+  gem 'faker'
 end
 
 group :development do
@@ -45,8 +47,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  # seedデータ
-  gem 'faker'
 end
 
 group :test do
