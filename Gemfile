@@ -38,6 +38,7 @@ group :development, :test do
   # RSpec rails consoleでも動作確認できるように、gemfileでは :testだけでなく :developmentにも定義
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'launchy'
 end
 
 group :development do
