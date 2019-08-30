@@ -12,7 +12,7 @@ module GraduateApp
     config.load_defaults 5.2
 
     # デフォルトの言語を日本語に設定する
-    # config.i18n.default_locale = :ja
+    config.i18n.default_locale = :ja
     # タイムゾーン設定
     config.time_zone = 'Tokyo'
     # Rails(Activerecord)がDBへのRead・Writeを行う際タイムゾーン
