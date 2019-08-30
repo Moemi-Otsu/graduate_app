@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Talk", type: :system do
   let(:user) { create(:user) }
-  let(:second_user) { create(:second_user) }
 
   describe 'talkのCRUD - ログイン状態' do
     it 'talkの新規登録' do
