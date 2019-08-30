@@ -81,7 +81,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdown1">
               <li><%= link_to '編集', edit_talk_comment_path(@talk.id, c.id) %></li>
-              <li><%= link_to '削除', talk_comment_path(@talk.id, c.id), method: :delete, data:{ confirm: "本当に削除しますか？"} %></li>
+              <li><%= link_to '削除', talk_comment_path(@talk.id, c.id), method: :delete, id: 'comment_delete' %></li>
             </ul>
           </div>
         <% end %>
