@@ -9,9 +9,9 @@ FactoryBot.define do
     # likes_count {}
     association :user, factory: :user
 
-    # after(:create) do |talk|
-    #   create_list(:category, 3, talks: [talk])
-    # end
+    after(:create) do |talk|
+      create_list(:comment, 1, talks: [talk])
+    end
   end
 
 end

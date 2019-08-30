@@ -15,6 +15,10 @@ FactoryBot.define do
     after(:create) do |user|
       create_list(:talk, 1, user: user)
     end
+
+    after(:create) do |user|
+      create_list(:comment, 1, user: user)
+    end
   end
 
   factory :second_user, class: User do
@@ -23,6 +27,10 @@ FactoryBot.define do
     password_confirmation { password }
     name { Faker::Name.name }
     role { 'member' }
+
+    after(:create) do |user|
+      create_list(:comment, 1, user: second_user)
+    end
   end
 
 end
