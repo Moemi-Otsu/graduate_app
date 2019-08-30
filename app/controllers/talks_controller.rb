@@ -63,7 +63,7 @@ class TalksController < ApplicationController
   end
 
   def destroy
-    if current_user.id == @talk.id
+    if current_user.id == @talk.user_id
       @talk.destroy
       redirect_to talks_path, notice:"削除しました！"
     else

@@ -61,4 +61,13 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  
+  # 追記
+  def user_logged_in
+    user
+    visit new_user_session_path
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
+    click_on 'commit'
+  end
 end

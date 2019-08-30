@@ -7,13 +7,11 @@ FactoryBot.define do
     complete { false }
     # user_id {}
     # likes_count {}
+    association :user, factory: :user
 
     # after(:create) do |talk|
     #   create_list(:category, 3, talks: [talk])
     # end
-  end
-
-  factory :second_talk, class: Talk do
   end
 
 end
