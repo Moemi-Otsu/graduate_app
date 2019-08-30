@@ -258,8 +258,19 @@ div.header {
 
 /* Main Visual */
 div.main_visual {
+  position: relative;
   background: #2cbfc7;
   height: 300px;
+}
+div.main_visual:after {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  content: '';
+  display: inline-block;
+  background-image: image-url('balloon.png');
+  width: 200px;
+  height: 150px;
 }
 
 /* columns_wrapper */
