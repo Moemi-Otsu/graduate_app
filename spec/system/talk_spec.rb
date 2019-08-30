@@ -32,22 +32,20 @@ RSpec.describe "Talk", type: :system do
     it 'talkの削除ができること' do
       user_logged_in
       talk = user.talks.first
-      visit edit_talk_path(talk.id)
+      visit talk_path(talk.id)
       click_on '削除'
+      expect(Talk.all).not_to have_content talk.title
+      expect(Talk.all).not_to have_content talk.content
     end
 
     it 'talkのコメント締め切り（complete）がtrueになった時、
     コメントが投稿できなくすること' do
-    end
-  end
-
-  describe 'talkの投稿者のみに表示される' do
-    context '自分が投稿したtalkに管理者メニューが表示されること' do
-      it '正常系' do
-      end
-
-      it '異常系' do
-      end
+      user_logged_in
+      talk = user.talks.first
+      visit talk_path(talk.id)
+      click_on '相談を解決(コメントを締め切る)'
+      visit talk_path(talk.id)
+      expect(page).to have_content 'この相談は解決済みとなり、コメントを締め切りました。'
     end
   end
 
