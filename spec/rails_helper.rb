@@ -70,4 +70,12 @@ RSpec.configure do |config|
     fill_in 'user[password]', with: user.password
     click_on 'commit'
   end
+
+  def second_user_logged_in
+    user
+    visit new_user_session_path
+    fill_in 'user[email]', with: second_user.email
+    fill_in 'user[password]', with: second_user.password
+    click_on 'commit'
+  end
 end
