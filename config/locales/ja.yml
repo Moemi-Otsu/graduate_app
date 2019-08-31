@@ -206,6 +206,9 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   view:
+    top_new: 新規登録してはじめる
+    top_to_index: すべての相談をみる
+    top_h2_index: みんなの相談
     btn_back: 戻る
     icon_required: 必須
     user_new: 新規アカウント登録

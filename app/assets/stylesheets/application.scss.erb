@@ -18,10 +18,12 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:700&display=swap');
 
 /* 変数 */
 $kosugi: 'Kosugi Maru', sans-serif;
 $marck_script: 'Marck Script', cursive;
+$noto-sans-jp: 'Noto Sans JP', sans-serif;
 $bottom_30: 0 0 30px 0;
 $left_30: 0 0 0 30px;
 $font_size_s: 0.9rem;
@@ -189,7 +191,7 @@ div.wrapper {
 
 /* h1 */
 div.h1_background {
-  background: $font_color;
+  background: $font_link_color;
   margin-bottom: 30px;
   padding: 20px 0;
 }
@@ -256,21 +258,165 @@ div.header {
   ul.global_nav li a:hover { color: $font_color_right; }
 }
 
-/* Main Visual */
+/* Only TOP */
 div.main_visual {
   position: relative;
-  background: #2cbfc7;
-  height: 300px;
+  background-color: $font_hover_color;
+  background-image: image-url("main_image.jpg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  width: 100%;
+  height: 500px;
+  div.main_catch_area {
+    position: absolute;
+    top: 7%;
+    left: 10%;
+    z-index: 2;
+    h1 img {
+      width: 50%;
+    }
+    p {
+      padding-left: 20px;
+      font-family: $noto-sans-jp;
+      color: #fff;
+      line-height: 2rem;
+      letter-spacing: 3px;
+      font-size: 1.2rem;
+    }
+  }
 }
+
 div.main_visual:after {
   position: absolute;
-  bottom: -30px;
-  left: 0;
+  bottom: -66px;
+  left: 32%;
   content: '';
   display: inline-block;
   background-image: image-url('balloon.png');
-  width: 200px;
-  height: 150px;
+  width: 520px;
+  height: 66px;
+  z-index: 100;
+}
+
+div.start_now {
+  position: relative;
+  margin-bottom: 90px;
+  padding: 100px 0 40px 0;
+  background-color: #fff9f1;
+  font-family: $noto-sans-jp;
+  text-align: center;
+  letter-spacing: 3px;
+  line-height: 1.6rem;
+  h2 {
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    text-align: center;
+    color: $font_hover_color;
+    background-image: image-url("line_h2.png");
+    background-size: 450px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  p.btn_start_now {
+    position: relative;
+    text-align: center;
+    a {
+      display: block;
+      width: 35%;
+      margin: 0 auto;
+      padding: 25px 30px;
+      background-color: #fff;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      color: $font_hover_color;
+      border: 2px solid $font_hover_color;
+      transition: .3s;
+      z-index: 2;
+      }
+    a:hover {
+      color: #fff;
+      background-color: $font_hover_color;
+    }
+  }
+  p.btn_start_now:before {
+    position: absolute;
+    top: -300px;
+    left: 10%;
+    content: '';
+    display: block;
+    width: 180px;
+    height: 260px;
+    background-image: image-url("man.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 0;
+  }
+  p.btn_start_now:after {
+    position: absolute;
+    top: -300px;
+    right: 15%;
+    content: '';
+    display: block;
+    width: 100px;
+    height: 224px;
+    background-image: image-url("woman.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 0;
+  }
+  p {
+    margin-bottom: 35px;
+    line-height: 1.9rem;
+  }
+}
+
+div.start_now:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  margin: 0 0 0 -2%;
+  background: #fff0dd;
+  -webkit-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center;
+  -webkit-transform: rotate(-2.2deg);
+  -ms-transform: rotate(-2.2deg);
+  transform: rotate(-2.2deg);
+  z-index: -2;
+}
+
+h2.top_title_h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-family: $noto-sans-jp;
+  letter-spacing: 3px;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  text-align: center;
+  color: $font_hover_color;
+}
+
+p.btn_top_index {
+  text-align: center;
+  margin: 50px 0 50px;
+  a {
+    padding: 15px 30px;
+    background: $font_link_color;
+    font-size: 1.2rem;
+    font-family: $noto-sans-jp;
+    color: #fff;
+    letter-spacing: 3px;
+  }
+  a:hover {
+    background: #fff;
+    color: $font_link_color;
+    border: 2px solid $font_link_color;
+  }
 }
 
 /* columns_wrapper */
