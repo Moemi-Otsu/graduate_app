@@ -26,15 +26,6 @@
         <p id="notice" class="flash_m container-fluid alert"><%= alert %></p>
       <% end %>
 
-<!-- cancancan用に記述 -->
-<!--<% if can? :update, current_user %>
-  <p>You can update</p>
-<% end %>
-<% if can? :read, current_user %>
-  <p>You can read member</p>
-<% end %>-->
-<!-- cancancan用に記述 -->
-
       <!-- Admin Nav -->
       <% if can? :update, current_user %>
         <div class="admin_nav container-fluid">
@@ -70,7 +61,26 @@
       <!-- Main Visual -->
       <% if check_page('talks', 'top') %>
         <div class="main_visual">
-          <h1>ここにキービジュアルが入ります。</h1>
+          <div class="main_catch_area">
+            <h1><%= image_tag 'main_catch.png' %></h1>
+            <p>育児と働くことの両立は<br />
+              大変なもの。<br />
+              ひとりで考えすぎないで、<br />
+              たくさんの先輩や<br />
+              同じ立場の仲間に相談しよう。</p>
+          </div>
+        </div>
+        <div class="start_now">
+          <h2>子育てのことも<br />
+          仕事のことも相談できる</h2>
+          <p>子どもが熱を出したとき、<br />
+          急にお迎えが必要になったとき。<br />
+          あなたのお勤め先は、育児に対して寛容ですか。<br />
+          <br />
+          みんなの職場環境について聞いたり、<br />
+          企業の"中の人"に、実際の職場環境について聞くこともできます。<br />
+          （この機能は開発中です。）</p>
+          <p class="btn_start_now"><%= link_to t('view.top_new'), new_user_registration_path %></p>
         </div>
       <% end %>
 
@@ -83,13 +93,19 @@
 
       <!-- Main Contents -->
       <div class="columns_wrapper container">
-        <% if check_page('talks', 'index') or check_page('talks', 'top') %>
+        <% if check_page('talks', 'index') %>
           <div class="main_column col-md-9">
             <%= yield %>
           </div>
           <div class="main_column col-md-3">
             <h2>これは見出しです。</h2>
-            <p>ここにリストが入ります。</p>
+            <p>ここにリストが入ります。（ゆくゆくはここに企業名が入ります。）</p>
+          </div>
+        <% elsif check_page('talks', 'top') %>
+          <div class="main_column col-md-10 col-md-offset-1">
+            <h2 class="top_title_h2"><%= t('view.top_h2_index') %></h2>
+            <%= yield %>
+            <p class="btn_top_index"><%= link_to t('view.top_to_index'), talks_path %></p>
           </div>
         <% else %>
           <div class="main_column col-md-10 col-md-offset-1">
