@@ -80,7 +80,11 @@
           みんなの職場環境について聞いたり、<br />
           企業の"中の人"に、実際の職場環境について聞くこともできます。<br />
           （この機能は開発中です。）</p>
-          <p class="btn_start_now"><%= link_to t('view.top_new'), new_user_registration_path %></p>
+          <% if user_signed_in? %>
+            <p class="btn_start_now"><%= link_to t('view.top_to_index'), talks_path %></p>
+          <% else %>
+            <p class="btn_start_now"><%= link_to t('view.top_new'), new_user_registration_path %></p>
+          <% end %>
         </div>
       <% end %>
 
