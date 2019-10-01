@@ -1,24 +1,6 @@
 <div class="talk_box_show">
-  <% if @talk.complete.present? %>
-    <p>この相談は解決済みとなり、コメントを締め切りました。</p>
-  <% end %>
 
-  <!-- メニュー begin -->
-  <% if current_user.present? %> <!-- リファクタ対象 -->
-    <% if current_user.id == @talk.user_id %>
-      <ul class="talk_utility">
-        <li>投稿者メニュー</li>
-        <li><%= link_to t('view.talk_btn_edit'), edit_talk_path(@talk.id) %></li>
-        <% if @talk.complete.present? %>
-          <li><%= link_to t('view.talk_complete_false'), talk_path(@talk, params: { talk: { complete: false} }), method: :put %></li>
-        <% else %>
-          <li><%= link_to t('view.talk_complete_true'), talk_path(@talk, params: { talk: { complete: true} }), method: :put %></li>
-        <% end %>
-        <li><%= link_to t('view.btn_delete'), talk_path(@talk.id), method: :delete, data: { confirm: '本当に削除しますか？' } %></li>
-      </ul>
-    <% end %>
-  <% end %>
-  <!-- メニュー end -->
+  <%= render 'contributor_menu' %>
 
   <div class="talk_box_header">
     <h1 class="talk_title"><%= @talk.title %></h1>
