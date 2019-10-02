@@ -1,5 +1,5 @@
 <% if @talk.complete.present? %>
-  <p>この相談は解決済みとなり、コメントを締め切りました。</p>
+  <p class="close_comment">この相談は解決済みとなり、コメントを締め切りました。</p>
 <% end %>
 
 <% if current_user.present? %> <!-- リファクタ対象 -->
