@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # binding.irb
     @user = User.find(params[:id])
     if current_user.role == 'admin'
       if @user.update(user_params)

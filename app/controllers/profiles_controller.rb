@@ -12,8 +12,6 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
     if @profile.save
-      # redirect_to profile_path(@profile.id), notice: "プロフィールを作成しました。"
-      # text = "プロフィールを作成しました。#{view_context.link_to 'マイページ', profile_path(@profile.id)}から確認いただけます。".html_safe
       redirect_to root_path, notice: "プロフィールを作成しました。「マイページ」から確認いただけます。"
     else
       render 'new'

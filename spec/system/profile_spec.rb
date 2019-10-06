@@ -17,7 +17,6 @@ RSpec.describe Profile, type: :system do
       select '関東', from: 'profile[area]'
       select '営業職', from: 'profile[occupation]'
       select 'IT・通信', from: 'profile[industry]'
-      # fill_in 'profile[image]', with: nil
       attach_file 'profile[image]', "#{Rails.root}/spec/files/default.jpg"
       fill_in 'profile[working_company]', with: 'ほげ株式会社'
       select '半年以下', from: 'profile_length_worked'
