@@ -3,6 +3,9 @@
 ## 概要
 子どもや育児に関する相談を投稿できるアプリケーションです。
 
+## 動作環境
+https://ancient-harbor-19093.herokuapp.com/
+
 ### コンセプト
 メイン機能は相談・質問とそれに対してコメントできる機能。
 その他コンセプトは、以下です。
@@ -52,7 +55,7 @@ https://xd.adobe.com/view/d8b6b63b-dac2-403c-579c-f5d8ddbdd390-ae87/
 画面遷移図は、XDの画面上では、以下の状態です。こちらの方が確認に都合よろしければ、XDデータ自体をご共有します。
 https://gyazo.com/1a15e627777dee6325943c40b213aee3
 
-### 使用予定Gem
+### 使用Gem
 * devise
 * carrierwave
 * mini_magick
